@@ -1,0 +1,79 @@
+body {
+    font-family: Inter;
+}
+
+.btn-pink {
+    color: #fff;
+    background-color: #F5497D;
+    border: #2E2F35 2px solid;
+    border-radius: 13px;
+    box-shadow: 3px 3px 0px 0px #2E2F35;
+}
+
+.btn-pink:hover {
+    color: #fff;
+    background-color: #ff69b4;
+    border-color: #ff69b4;
+    box-shadow: 0px 0px 0px 0px #2E2F35;
+}
+
+.font-navbar {
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+}
+
+.font-jumbotron {
+    font-family: Inter;
+    font-size: 45px;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: -0.96px;
+}
+
+.font-black {
+    color: #2E2F35;
+}
+
+.font-pink {
+    color: #F5497D;
+}
+
+.jumbo-left {
+    width: 550px;
+}
+
+.font-coba {
+    color: #FFF;
+    text-align: center;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+.font-masuk {
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+}
+
+.jumbotron-container{
+    display: flex;
+    align-items: center; /* Vertically center align items */
+    justify-content: center; /* Horizontally center align items if needed */
+}
+
+.jumbo-pic {
+    max-width: 100%; /* Ensure the image scales appropriately */
+    height: auto;
+    margin-left: 20px; /* Adjust margin as needed to add space between elements */
+  }
