@@ -1,16 +1,13 @@
-import NavBar from "./components/navbar";
-import Jumbotron from "./components/beranda/jumbotron";
-import Company from "./components/beranda/company";
-import Introduction from "./components/beranda/introduction";
+import Login from './components/login'
 
 function App() {
   return (
-    <div>
-      <NavBar /> 
-      <Jumbotron />
-      <Company />
-      <Introduction />
-    </div>
+    <>
+    <Login></Login>
+    </>
+  
+      
+  
   );
 }
 
