@@ -1,6 +1,7 @@
 import NavBar from "./components/navbar";
 import Jumbotron from "./components/beranda/jumbotron";
 import Company from "./components/beranda/company";
+import Introduction from "./components/beranda/introduction";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <NavBar /> 
       <Jumbotron />
       <Company />
+      <Introduction />
     </div>
   );
 }
