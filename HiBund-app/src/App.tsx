@@ -1,9 +1,10 @@
 import Login from './components/login'
+import Register from './components/regis';
 
 function App() {
   return (
     <>
-    <Login></Login>
+    <Register></Register>
     </>
   
       
