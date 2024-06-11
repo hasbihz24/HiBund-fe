@@ -1,10 +1,12 @@
 import Login from './components/login'
 import Register from './components/regis';
+import ChangePassword from './components/ubah-pw';
 
 function App() {
   return (
     <>
-    <Register></Register>
+    <ChangePassword></ChangePassword>
+
     </>
   
       
