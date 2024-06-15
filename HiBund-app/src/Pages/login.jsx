@@ -1,23 +1,29 @@
-import imglogin from  "../assets/login.png"
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-
+import imglogin from  "../assets/login.png"
+//import Backbutton from "../components/backbutton";
+import {Link} from 'react-router-dom';
+//import validation from "../components/loginValidation";
+//import { useContext } from 'react';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [Katasandi, setKatasandi] = useState('');
+    const[values, setValues] = useState({
+        email: '',
+        password: ''
+      })
+    
+      const[errors, setError] = useState({})
+    
+      const handleInput = (e) => {
+          setValues(prev => ({...prev,[e.target.name]: [e.target.value]}))
+      }
+    
+     const handleSubmit = (e) => {
+        e.preventDefault();
+        setError(validation(values));
+     };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    // TODO: submit login form
-    console.log('Email:', email);
-    console.log('Kata sandi:', Katasandi);
-  }
-
-
-   
-return (
-<div className="min-h-screen flex flex-col lg:flex-row bg-white">
+  return (
+    <div className="min-h-screen flex flex-col lg:flex-row bg-white">
   {/* Bagian kiri (gambar) */}
   <div className="w-full right-6 lg:justify-start items-center">
     <img className="w-full rounded-2xl lg:rounded-tr-none lg:rounded-br-[15px]" src={imglogin} />
@@ -31,7 +37,7 @@ return (
     {/* Bagian atas dengan link "Daftar" */}
     <div className="absolute top-4 right-4 lg:top-4 lg:flex gap-1">
       <div className="text-stone-400 text-sm lg:text-base font-normal font-['Inter']">Belum punya akun?</div>
-      <div className="text-pink-500 text-sm lg:text-base font-bold font-['Inter'] cursor-pointer">Daftar</div>
+      <Link to="/regis" className="text-pink-500 text-sm lg:text-base font-bold font-['Inter'] cursor-pointer">Daftar</Link>
     </div>
     
     {/* Selamat Datang */}
@@ -57,9 +63,9 @@ return (
           autoFocus
           className="px-4 py-3 lg:py-4 placeholder-gray-400 bg-white rounded-xl border border-black text-sm shadow focus:outline-none focus:ring focus:ring-black-200 focus:shadow-outline w-full focus:z-10 sm:text-sm"
           placeholder="Masukan Username/Email"
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
+          onChange={handleInput}
+          required />
+          {errors.email && <span className='text-red-600'>{errors.email}</span>}
       </div>
       <div>
         <label htmlFor="password" className="block font-sans text-lg lg:text-xl font-bold mt-4 lg:mt-8">
@@ -73,9 +79,9 @@ return (
             autoComplete="off"
             className="px-4 py-3 lg:py-4 placeholder-gray-400 bg-white rounded-xl border border-black text-sm shadow focus:outline-none focus:ring focus:ring-black-200 focus:shadow-outline w-full focus:z-10 sm:text-sm"
             placeholder="Masukan kata sandi anda"
-            onChange={(e) => setKatasandi(e.target.value)}
-            required
-          />
+            onChange={handleInput}
+            required   />
+            {errors.password && <span className='text-red-600'>{errors.password}</span>}
         </div>
       </div>
     </div>
@@ -95,12 +101,7 @@ return (
         </label>
       </div>
       <div className="text-sm mt-2 lg:mt-0">
-        <a
-          href="#"
-          className="font-medium text-pink-500 hover:underline"
-        >
-          Lupa Kata Sandi
-        </a>
+      <Link to="/otp" className="font-medium text-pink-500 hover:underline">Lupa Kata Sandi</Link>
       </div>
     </div>
     <div>
@@ -149,10 +150,7 @@ return (
 
   </div>
 </div>
-
-
-
-) ;
-};
+  );
+}
 
 export default Login;
