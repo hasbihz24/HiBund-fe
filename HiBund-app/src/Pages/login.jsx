@@ -101,7 +101,7 @@ const Login = () => {
         </label>
       </div>
       <div className="text-sm mt-2 lg:mt-0">
-      <Link to="/otp" className="font-medium text-pink-500 hover:underline">Lupa Kata Sandi</Link>
+      <Link to="/forget" className="font-medium text-pink-500 hover:underline">Lupa Kata Sandi</Link>
       </div>
     </div>
     <div>

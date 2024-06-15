@@ -43,7 +43,7 @@ const Register = () => {
                 {/* Simbol panah kiri untuk kembali */}
                 <Backbutton nama="Kembali"></Backbutton>
             </div>
-
+            
             <div className="text-right text-xs">
               <div className="text-zinc-800">Step 1 of 2</div>
               <div className="text-pink-500 font-medium">Signup</div>
