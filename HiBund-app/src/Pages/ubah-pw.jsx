@@ -2,10 +2,10 @@ import React from 'react';
 import imglogin from "../assets/login.png";
 import Backbutton from "../components/back-button";
 
-const changePassword = () => {
+const ChangePassword = () => {
     
   return (
-    <div className="min-h-screen flex flex-col md:flex-row justify-center items-center relative bg-gray-100">
+    <div className="min-h-screen flex flex-col md:flex-row justify-center items-center relative">
       {/* Image Section */}
       <div className="w-full md:w-1/2 lg:w-full xl:w-1/2 h-64 md:h-auto lg:h-full flex justify-center lg:justify-start items-center">
         <img
@@ -78,4 +78,4 @@ const changePassword = () => {
   );
 };
 
-export default changePassword;
+export default ChangePassword;
