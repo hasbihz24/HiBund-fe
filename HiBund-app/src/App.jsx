@@ -10,7 +10,7 @@ import VerifyLanjut from "./pages/verify2";
 function App() {
   return (
     <>
-    <VerifyLanjut></VerifyLanjut>
+   
     </>
   );
 }
