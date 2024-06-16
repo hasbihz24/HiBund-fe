@@ -1,17 +1,16 @@
-import NavBar from "./components/navbar";
-import Jumbotron from "./components/beranda/jumbotron";
-import Company from "./components/beranda/company";
-import Introduction from "./components/beranda/introduction";
+import Home from './page/home';
+import Fitur from './page/fitur';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <div>
-      <NavBar /> 
-      <Jumbotron />
-      <Company />
-      <Introduction />
-    </div>
-  );
-}
+    <>
+      <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/fitur" element={<Fitur />} />
+       </Routes>
+
+    </>
+
 
 export default App;
