@@ -17,6 +17,21 @@ body {
     box-shadow: 0px 0px 0px 0px #2E2F35;
 }
 
+.btn-white {
+    color: #2E2F35;
+    background-color: #FFF;
+    border: #2E2F35 2px solid;
+    border-radius: 13px;
+    box-shadow: 3px 3px 0px 0px #2E2F35;
+}
+
+.btn-white:hover {
+    color: #2E2F35;
+    background-color: #FFF;
+    border: #2E2F35 2px solid;
+    box-shadow: 0px 0px 0px 0px #2E2F35;
+}
+
 .font-navbar {
     font-family: Inter;
     font-size: 15px;
@@ -25,73 +40,3 @@ body {
     line-height: 18px;
 }
 
-.font-jumbotron {
-    font-family: Inter;
-    font-size: 45px;
-    font-style: normal;
-    font-weight: 700;
-    letter-spacing: -0.96px;
-}
-
-.font-black {
-    color: #2E2F35;
-}
-
-.font-pink {
-    color: #F5497D;
-}
-
-.jumbo-left {
-    width: 550px;
-}
-
-.intro-left {
-    width: 420px;
-}
-
-.font-coba {
-    color: #FFF;
-    text-align: center;
-    font-size: 10px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 20px;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-}
-
-.font-masuk {
-    color: #FFF;
-    text-align: center;
-    font-family: Inter;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 18px;
-}
-
-.jumbotron-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.jumbo-pic {
-    max-width: 100%;
-    /* Ensure the image scales appropriately */
-    height: auto;
-    margin-left: 20px;
-    /* Adjust margin as needed to add space between elements */
-}
-
-.font-intro {
-    font-size: 48px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 47px;
-}
-
-.resized-image {
-    width: 110px; /* Sesuaikan dengan ukuran yang diinginkan */
-    height: auto; /* Menjaga rasio aspek */
-  }

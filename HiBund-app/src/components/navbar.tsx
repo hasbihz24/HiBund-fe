@@ -1,9 +1,9 @@
 
 function NavBar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light ">
+    <nav className="navbar navbar-expand-lg navbar-light mt-2">
       <div className="container-fluid">
-        <a className="navbar-brand" href="">
+        <a className="navbar-brand" href="/">
           <img
             src="logo.png"
             alt=""
@@ -26,12 +26,12 @@ function NavBar() {
         <div className="collapse navbar-collapse justify-content-center font-navbar font-black" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item m-2">
-              <a className="nav-link active" aria-current="page" href="#">
+              <a className="nav-link active" aria-current="page" href="/">
                 Beranda
               </a>
             </li>
             <li className="nav-item m-2">
-              <a className="nav-link" href="#">
+              <a className="nav-link" href="/fitur">
                 Fitur
               </a>
             </li>
