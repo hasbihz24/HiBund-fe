@@ -1,11 +1,12 @@
-import ChangePassword from "./Pages/ubah-pw";
+import Login from "./pages/login";
+import ChangePassword from "./pages/ubah-pw";
 
 
 
 function App() {
   return (
     <>
-   <ChangePassword></ChangePassword>
+      <Login></Login>
     </>
   );
 }
