@@ -1,61 +1,66 @@
 import React from 'react';
 import imglogin from "../assets/login.png";
-import Backbutton from "../components/back-button";
+import BackButton from '../components/back-button'; 
 
 const Forget = () => {
   return (
-    <div className="min-h-screen flex flex-col md:flex-row justify-center items-center relative">
-      {/* Image section */}
-      <div className="w-full md:w-1/2 lg:w-full xl:w-1/2 h-96 md:h-auto lg:h-full flex justify-center lg:justify-start items-center">
-        <img
-          className="w-full h-dvh rounded-2xl lg:rounded-tr-none lg:rounded-br-[15px]"
-          src={imglogin}
-          alt="Login visual"
-        />
-      </div>
+    <section className="min-h-screen flex items-center justify-center">
+    <div className="flex flex-col md:flex-row rounded-2xl p-5 items-center md:items-stretch gap-y-8 md:gap-x-8 bg-white shadow-lg">
 
-      {/* Form section */}
-      <div className="w-full md:w-1/2 h-full px-4 py-8 md:px-12 md:py-16 flex flex-col gap-8 bg-white">
-        {/* Positioned elements */}
-        <div className="flex justify-between items-center w-full mb-8">
-          <Backbutton nama="Kembali" />
-          <div className="text-right text-xs md:text-sm">
-            <div className="text-zinc-800">Step 1 of 3</div>
-            <div className="text-pink-500 font-medium">Lupa Kata Sandi</div>
-          </div>
+        {/* Image Section */}
+        <div className="md:w-1/2 flex justify-center">
+            <img className="rounded-2xl max-w-full h-auto md:max-w-1/2" src={imglogin} alt="Login visual" />
         </div>
 
-        {/* Information and form */}
-        <div className="flex flex-col items-start gap-6 md:gap-12">
-          <div className="flex flex-col gap-1">
-            <h2 className="text-xl md:text-3xl font-medium text-black">Lupa kata sandi?</h2>
-            <p className="text-sm md:text-base text-neutral-700/50 mt-1">
-              Masukkan email akun Anda dan kami akan mengirimkan email untuk mengatur ulang kata sandi Anda.
-            </p>
-          </div>
+        {/* Bagian form */}
+        <div className="w-full md:w-1/2 px-4 py-8 md:px-12 md:py-16 flex flex-col gap-4 md:gap-8 bg-white">
+            {/* Navigasi Kembali dan Status Langkah */}
+            <div className="flex justify-between items-center">
+                <div>
+                    {/* Simbol panah kiri untuk kembali */}
+                    <BackButton nama="Kembali" />
+                </div>
 
-          {/* Email Input */}
-          <div className="flex flex-col gap-2 w-full">
-            <label className="text-neutral-900 text-base font-normal" htmlFor="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              className="px-4 py-3 bg-slate-100 rounded-xl  outline-none w-full"
-              placeholder="Masukkan email anda"
-              required
-            />
-          </div>
+                <div className="text-right text-xs">
+                    <div className="text-zinc-800">Step 1 of 3</div>
+                    <div className="text-pink-500 font-medium">Lupa kata sandi</div>
+                </div>
+            </div>
 
-          {/* Continue button */}
-          <button
-            type="submit"
-            className="bg-pink-500 text-white text-base font-bold px-6 py-3 rounded-xl shadow hover:shadow-lg hover:opacity-70 outline-none focus:outline-none w-full ease-linear transition-all duration-150"
-          >
-            Lanjutkan
-          </button>
+            {/* Judul dan Deskripsi */}
+            <div className="mt-4 md:mt-8">
+                <h2 className="text-black text-2xl lg:text-[32px] font-bold">Lupa Kata Sandi?</h2>
+                <p className="text-stone-400 text-xs leading-normal mt-2">
+                Masukkan email akun Anda dan kami akan mengirimkan email untuk mengatur ulang kata sandi Anda.
+                </p>
+            </div>
+
+            {/* Form */}
+            <form  className="flex flex-col gap-4 mt-2 md:mt-8">
+                {/* Email Input */}
+                <div className="flex flex-col gap-2">
+                    <label htmlFor="email" className="text-xl font-bold">Email</label>
+                    <input
+                        className="px-4 py-3 lg:py-4 placeholder-gray-400 bg-white rounded-xl border border-black text-sm shadow focus:outline-none focus:ring focus:ring-black-200 focus:shadow-outline w-full focus:z-10 sm:text-sm"
+                        type="email"
+                        id="email"
+                        name="email"
+                        autoComplete="off"
+                        placeholder="Masukkan email anda"
+                        required />
+                </div>
+
+                {/* Submit Button */}
+                <button
+                    type="submit"
+                    className="bg-pink-500 text-white text-sm font-bold px-6 py-3 rounded-xl shadow hover:shadow-lg hover:opacity-70 outline-none focus:outline-none w-full ease-linear transition-all duration-150 mt-2 md:mt-4"
+                >
+                    Lanjutkan
+                </button>
+            </form>
         </div>
-      </div>
     </div>
+</section>
   );
 };
 
