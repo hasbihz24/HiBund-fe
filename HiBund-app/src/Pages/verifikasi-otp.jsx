@@ -1,85 +1,103 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import imglogin from "../assets/login.png";
-import Backbutton from '../components/back-button';
-
+import BackButton from '../components/back-button';
 
 const Verify = () => {
-    const [otp] = useState(Array(6).fill('')); // Initialize OTP state as an array of 6 empty strings
-   
+  const [otp, setOtp] = useState(new Array(6).fill(''));
+  const inputRefs = useRef([]);
 
-    const handleVerify = () => {
-        // handle the verification logic here
-        // Logic here
-        // Navigate ke "UbahPassword Page"
+  const handleOtpChange = (element, index) => {
+    if (isNaN(element.value)) return;
 
-        // Success message
-        alert('Verifikasi Berhasil');
+    // Update the OTP state
+    const newOtp = [...otp];
+    newOtp[index] = element.value;
+    setOtp(newOtp);
+
+    // Focus on next input box if not the last one
+    if (element.value && index < 5) {
+      inputRefs.current[index + 1].focus();
     }
+  };
 
-    const handleResend = () => {
-        // handle the resend logic here
-    };
+  const handleKeyDown = (event, index) => {
+    if (event.key === 'Backspace' && index > 0 && !otp[index]) {
+      inputRefs.current[index - 1].focus();
+    }
+  };
 
-    return (
-        <div className="min-h-screen flex flex-col md:flex-row justify-center items-center">
-            {/* Bagian gambar */}
-            <div className="w-full md:w-1/2 lg:w-full xl:w-1/2 h-96 md:h-auto lg:h-full flex justify-center lg:justify-start items-center">
-                <img className="w-full h-dvh rounded-2xl lg:rounded-tr-none lg:rounded-br-[15px]" src={imglogin} alt="Login visual" />
-            </div>
-            
-            {/* Gap antara gambar dan form */}
-            <div className="hidden lg:block w-4"></div>
-            <div className="w-full md:w-1/2 lg:w-1/2 mb-80 xl:w-1/2 px-4 py-8 md:px-12 md:py-16 flex flex-col gap-8 bg-white">
-                {/* Navigasi Kembali dan Status Langkah */}
-                <div className="flex justify-between items-center">
-                <div>
-                {/* Simbol panah kiri untuk kembali */}
-                <Backbutton nama="Kembali"></Backbutton>
-                </div>
-                <div className="text-right text-xs items-center">
-                    <div className="text-zinc-800">Step 2 of 2</div>
-                     <div className="text-pink-500 font-medium">Signup</div>
-                </div>
-             </div>
+  const handleResend = () => {
+    // handle the resend logic here
+  };
 
-                {/* Informasi dan Form */}
-                <div className="flex flex-col items-start lg:gap-12">
-                    <div>
-                        <h2 className="text-2xl md:text-3xl font-medium text-black">Periksa Email Anda</h2>
-                        <p className="text-sm text-neutral-700/50 mt-1">Kami telah mengirimkan 6 digit kode. Pastikan Anda memasukkan kode yang benar.</p>
-                    </div>
+  return (
+    <section className="min-h-screen flex items-center justify-center">
+      <div className="flex flex-col md:flex-row rounded-2xl p-5 items-center md:items-stretch gap-y-8 md:gap-x-8 bg-white shadow-lg">
 
-                    {/* Input OTP */}
-                    <div className="w-full flex justify-center items-center gap-2">
-                        {otp.map((value, index) => (
-                            <input
-                                key={index}
-                                type="text"
-                                maxLength="1"
-                                className="w-12 h-12 border-2 rounded-md bg-white outline-none text-center font-semibold text-xl border-gray-300 focus:border-pink-500 focus:text-gray-700 transition"
-                                value={value}
-                                onChange={(e) => handleOtpChange(e.target.value, index)}
-                            />
-                        ))}
-                    </div>
-
-                    <button
-                        type="submit"
-                        className="bg-pink-500 text-white text-base font-bold px-6 py-3 rounded-xl shadow hover:shadow-lg hover:opacity-70 outline-none focus:outline-none w-full ease-linear transition-all duration-150"
-                        onClick={handleVerify}
-                    >
-                        Lanjutkan
-                    </button>
-
-                    {/* Bagian "Tidak menerima kode? Kirim ulang kode" */}
-                    <div className="flex justify-center items-center text-center gap-2 lg:text-center ml-24">
-                        <p className="text-base text-stone-500">Tidak menerima kode?</p>
-                        <p className="text-base text-pink-500 cursor-pointer font-bold" onClick={handleResend}>Kirim ulang kode</p>
-                    </div>
-                </div>
-            </div>
+        {/* Image Section */}
+        <div className="md:w-1/2 flex justify-center">
+          <img className="rounded-2xl max-w-full h-auto md:max-w-1/2" src={imglogin} alt="Login visual" />
         </div>
-    );
+
+        {/* Bagian form */}
+        <div className="w-full md:w-1/2 px-4 py-8 md:px-12 md:py-16 flex flex-col gap-4 md:gap-8 bg-white">
+          {/* Navigasi Kembali dan Status Langkah */}
+          <div className="flex justify-between items-center">
+            <div>
+              {/* Simbol panah kiri untuk kembali */}
+              <BackButton nama="Kembali" />
+            </div>
+
+            <div className="text-right text-xs">
+              <div className="text-zinc-800">Step 2 of 2</div>
+              <div className="text-pink-500 font-medium">SignUp</div>
+            </div>
+          </div>
+
+          {/* Judul dan Deskripsi */}
+          <div className="mt-4 md:mt-8">
+            <h2 className="text-black text-2xl lg:text-[32px] font-bold">Periksa Email Anda</h2>
+            <p className="text-stone-400 text-xs leading-normal mt-2">
+              Kami telah mengirimkan 6 digit kode. Pastikan Anda memasukkan kode yang benar.
+            </p>
+          </div>
+
+          {/* Form */}
+          <form className="flex flex-col gap-4 mt-2 md:mt-8">
+            {/* OTP Input */}
+            <div className="flex justify-center items-center gap-3">
+              {otp.map((digit, index) => (
+                <input
+                  key={index}
+                  type="text"
+                  className="w-10 h-12 md:w-12 md:h-16 text-center text-lg border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500"
+                  maxLength="1"
+                  value={digit}
+                  onChange={(e) => handleOtpChange(e.target, index)}
+                  onKeyDown={(e) => handleKeyDown(e, index)}
+                  ref={(el) => (inputRefs.current[index] = el)}
+                />
+              ))}
+            </div>
+
+            {/* Submit Button */}
+            <button
+              type="submit"
+              className="bg-pink-500 text-white text-sm font-bold px-6 py-3 rounded-xl shadow hover:shadow-lg hover:opacity-70 outline-none focus:outline-none w-full ease-linear transition-all duration-150 mt-2 md:mt-4"
+            >
+             Lanjutkan
+            </button>
+
+            {/* Bagian "Tidak menerima kode? Kirim ulang kode" */}
+            <div className="flex justify-center items-center text-center gap-2">
+              <p className="text-base text-stone-500">Tidak menerima kode?</p>
+              <p className="text-base text-pink-500 cursor-pointer font-bold" onClick={handleResend}>Kirim ulang kode</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Verify;
