@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import imglogin from "../assets/login.png";
 import BackButton from '../components/back-button'; // Ubah import agar sesuai dengan nama file dan penempatannya
+import { Link } from 'react-router-dom';
 //import validation from "../components/loginValidation"; // Comment out karena belum digunakan
 //import { useContext } from 'react';
 
@@ -26,11 +27,11 @@ const Register = () => {
     return (
         <section className="min-h-screen flex items-center justify-center">
             <div className="flex flex-col md:flex-row rounded-2xl p-5 items-center md:items-stretch gap-y-8 md:gap-x-8 bg-white shadow-lg">
-
-                {/* Image Section */}
-                <div className="md:w-1/2 flex justify-center">
-                    <img className="rounded-2xl max-w-full h-auto md:max-w-1/2" src={imglogin} alt="Login visual" />
-                </div>
+            
+            {/* Image Section */}
+            <div className="md:w-1/2 flex justify-center">
+            <img className="rounded-2xl max-w-full h-auto md:max-w-3/4" src={imglogin} alt="Login visual" />
+            </div>
 
                 {/* Bagian form */}
                 <div className="w-full md:w-1/2 px-4 py-8 md:px-12 md:py-16 flex flex-col gap-4 md:gap-8 bg-white">
@@ -115,6 +116,7 @@ const Register = () => {
                                     type="password"
                                     id="password"
                                     name="password"
+                                    autoComplete='off'
                                     placeholder="Masukkan kata sandi anda"
                                     value={values.password}
                                     onChange={handleInput}
@@ -145,12 +147,12 @@ const Register = () => {
 
                            {/* Sudah memiliki akun? */}
                            <div className="mt-2 text-xs text-center text-gray-600">
-                            Sudah memiliki akun? <a href="#" className="text-pink-500 hover:underline">Daftar</a>
+                            Sudah memiliki akun? <Link to="/" className="text-pink-500">Masuk</Link>
                         </div>
                     </form>
                 </div>
             </div>
-        </section>
+        </section>   
     );
 };
 

@@ -23,10 +23,11 @@ const Login = () => {
     <section className="min-h-screen flex items-center justify-center">
       <div className="flex flex-col md:flex-row rounded-2xl p-5 items-center gap-y-8 md:gap-x-8 bg-white shadow-lg">
         
-        {/* Image Section */}
-        <div className="hidden md:block md:w-1/2">
-          <img className="rounded-2xl" src={imglogin} alt="Login visual" />
-        </div>
+          {/* Image Section */}
+          <div className="md:w-1/2 flex justify-center">
+              <img className="rounded-2xl max-w-full h-auto md:max-w-1/2" src={imglogin} alt="Login visual" />
+          </div>
+
 
         {/* Form Section */}
         <div className="md:w-1/2 px-8 md:px-16">
@@ -68,6 +69,7 @@ const Login = () => {
                   type="password"
                   id="password"
                   name="password"
+                  autoComplete='off'
                   placeholder="Masukkan kata sandi Anda"
                   value={values.password}
                   onChange={handleInput}
