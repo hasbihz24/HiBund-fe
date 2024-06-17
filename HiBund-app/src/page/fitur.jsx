@@ -96,7 +96,7 @@ function Fitur() {
         {
             nama: "Tips & Trik",
             judul: "Mengajarkan Anak Nilai-Nilai Empati dan Kebaikan",
-            text: "Temukan manfaat bergabung dengan komunitas orang tua untuk saling bertukar pengalaman dan tipsCara efektif untuk menanamkan empati dan kebaikan pada anak melalui contoh dan kegiatan sehari-hari..",
+            text: "Cara efektif untuk menanamkan empati dan kebaikan pada anak melalui contoh dan kegiatan sehari-hari..",
             img: imgchild12,
             next: "Baca Selengkapnya →"
         },

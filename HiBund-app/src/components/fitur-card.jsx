@@ -13,7 +13,7 @@ function FiturCard({ cards }) {
                                 <div className="text-xl font-medium text-zinc-800 my-2">{card.judul}</div>
                                 <div className="text-xs text-zinc-800/50">{card.text}</div>
                             </div>
-                            <div className="text-pink-500 text-xs font-normal mt-2 text-right">{card.next}</div>
+                            <button className="text-pink-500 text-xs font-normal mt-2 text-right">{card.next}</button>
                         </div>
                     </div>
                 </div>
