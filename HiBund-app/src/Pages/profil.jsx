@@ -105,50 +105,52 @@ function App() {
     return (
         <div className="bg-white">
             <main className="container mx-auto py-12">
-                <section className="flex flex-col items-center">
-                    <img src={imgchild11} alt='banner' className='w-full h-80 object-cover' />
-                    <div className="absolute bottom-12 flex flex-col items-center w-full">
+                <section className="flex flex-col items-center relative">
+                    <img src={imgchild11} alt='banner' className='w-full h-48 md:h-80 object-cover' />
+                    <div className="absolute top-[200px] md:top-[280px] flex flex-col items-center w-full">
                         <img
-                            className="w-24 h-24 rounded-full border-4 border-white"
+                            className="w-20 h-20 md:w-24 md:h-24 rounded-full border-4 border-white"
                             src={imgprofil}
                             alt="profile"
                         />
-                        <h2 className="text-2xl font-bold my-2">Dr. Bima Karunia Fajar S, Kep. S, Kom.</h2>
-                        <p className="text-gray-500 mb-4">Pakar Psikologi Anak</p>
-                        <div className="flex space-x-8 mb-4">
+                        <h2 className="text-xl md:text-2xl font-bold my-2 text-center">Dr. Bima Karunia Fajar S, Kep. S, Kom.</h2>
+                        <p className="text-gray-500 mb-4 text-center">Pakar Psikologi Anak</p>
+                        <div className="flex space-x-4 md:space-x-8 mb-4">
                             <div className="flex flex-col items-center">
-                                <span className="text-3xl font-bold">21</span>
+                                <span className="text-2xl md:text-3xl font-bold">21</span>
                                 <p className="text-gray-500">Postingan</p>
                             </div>
+                            <div className="border-r border-gray-300 h-12"></div> {/* Garis pemisah */}
                             <div className="flex flex-col items-center">
-                                <span className="text-3xl font-bold">238</span>
+                                <span className="text-2xl md:text-3xl font-bold">238</span>
                                 <p className="text-gray-500">Pengikut</p>
                             </div>
+                            <div className="border-r border-gray-300 h-12"></div> {/* Garis pemisah */}
                             <div className="flex flex-col items-center">
-                                <span className="text-3xl font-bold">101</span>
+                                <span className="text-2xl md:text-3xl font-bold">101</span>
                                 <p className="text-gray-500">Mengikuti</p>
                             </div>
                         </div>
-                        <div className="flex space-x-4">
-                            <button className="bg-gray-400 hover:bg-pink-500 text-white font-bold py-2 px-4 rounded">
+                        <div className="flex flex-wrap justify-center space-x-2 md:space-x-4">
+                            <button className="bg-slate-50 border border-black hover:bg-pink-500 text-black font-bold py-1 px-2 md:py-2 md:px-4 rounded">
                                 Edit Profil
                             </button>
-                            <button className="bg-gray-400 hover:bg-pink-500 text-white font-bold py-2 px-4 rounded">
+                            <button className="bg-slate-50 border border-black hover:bg-pink-500 text-black font-bold py-1 px-2 md:py-2 md:px-4 rounded">
                                 Edit Postingan
                             </button>
-                            <button className="bg-gray-400 hover:bg-pink-500 text-white font-bold py-2 px-4 rounded">
+                            <button className="bg-slate-50 border border-black hover:bg-pink-500 text-black font-bold py-1 px-2 md:py-2 md:px-4 rounded">
                                 Lihat Pesan
                             </button>
-                            <button className="bg-gray-400 hover:bg-pink-500 text-white font-bold py-2 px-4 rounded">
+                            <button className="bg-slate-50 border border-black hover:bg-pink-500 text-black font-bold py-1 px-2 md:py-2 md:px-4 rounded">
                                 Bagikan Profil
                             </button>
                         </div>
                     </div>
                 </section>
 
-                    <section className="px-4 mt-80 md:px-0">
+                <section className="px-4 mt-40 md:mt-80 md:px-0">
                     <FiturCard cards={cards} />
-                   </section>
+                </section>
             </main>
         </div>
     );
