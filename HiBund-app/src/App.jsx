@@ -8,15 +8,16 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import NavBar from "./components/navbar";
 import Footer from "./components/footer";
 import Profil from "./Pages/profil";
+import EditProfile from "./pages/edit-profil";
 
 
 
 function App() {
   return (
     <>
-       <NavBar></NavBar>
-       <Profil></Profil>
-      <Footer></Footer>
+      
+     <EditProfile></EditProfile>
+      
     </>
   );
 }

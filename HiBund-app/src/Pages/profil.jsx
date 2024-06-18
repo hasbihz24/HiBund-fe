@@ -130,16 +130,16 @@ function App() {
                             </div>
                         </div>
                         <div className="flex space-x-4">
-                            <button className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded">
+                            <button className="bg-gray-400 hover:bg-pink-500 text-white font-bold py-2 px-4 rounded">
                                 Edit Profil
                             </button>
-                            <button className="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded">
+                            <button className="bg-gray-400 hover:bg-pink-500 text-white font-bold py-2 px-4 rounded">
                                 Edit Postingan
                             </button>
-                            <button className="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded">
+                            <button className="bg-gray-400 hover:bg-pink-500 text-white font-bold py-2 px-4 rounded">
                                 Lihat Pesan
                             </button>
-                            <button className="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded">
+                            <button className="bg-gray-400 hover:bg-pink-500 text-white font-bold py-2 px-4 rounded">
                                 Bagikan Profil
                             </button>
                         </div>
