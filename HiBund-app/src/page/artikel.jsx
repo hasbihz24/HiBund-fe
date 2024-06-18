@@ -16,8 +16,7 @@ import imgchild13 from "../../public/jumbo-child.png";
 import FiturCard from "../components/fitur-card";
 
 function Artikel() {
-    // State for managing the selected category
-    const [selectedCategory, setSelectedCategory] = useState("Semua");
+  
 
     const cards = [
         {
@@ -105,62 +104,34 @@ function Artikel() {
             next: "Baca Selengkapnya →"
         },
     ];
+    return (
+        <div className="bg-white">
+            <main className="container mx-auto py-12">
+                <section className="flex flex-col items-center">
+                    <img src={imgchild13} alt='banner' className='w-full h-full object-cover' />
+                    <div className="flex space-x-4 mt-5">
+                            <button className="bg-gray-400 hover:bg-gray-500 text-white text-sm font-medium px-6 py-3 rounded-xl shadow">
+                              Semua
+                            </button>
+                            <button className="bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium px-6 py-3 rounded-xl shadow">
+                                Artikel & Panduan
+                            </button>
+                            <button className="bg-gray-400 hover:bg-gray-500 text-white text-sm font-medium px-6 py-3 rounded-xl shadow">
+                                Tips & Trik
+                            </button>
+                            <button className="bg-gray-400 hover:bg-gray-500 text-white text-sm font-medium px-6 py-3 rounded-xl shadow">
+                                Grup & Komunitas
+                            </button>
+                        </div>
+                </section>
 
-     // Function to handle category change
-     const handleCategoryChange = (category) => {
-        setSelectedCategory(category);
-    };
+                 <section className="px-4 mt-10 md:px-0">
+                    <FiturCard cards={cards} />
+                 </section>
 
-    // Filtered cards based on the selected category
-    const filteredCards = selectedCategory === "Semua"
-        ? cards
-        : cards.filter(card => card.nama === selectedCategory);
-
-        return (
-            <div className="w-full h-screen flex flex-col items-center bg-white relative overflow-y-auto">
-                {/* Main Content Overlay */}
-                <div className="flex justify-center items-center w-full h-full md:mt-[-5%]">
-                    <img src={imgchild13} className="max-w-full max-h-full object-contain" alt="child" />
-                </div>
-    
-                {/* Categories Section */}
-                <div className="absolute top-[68%] transform -translate-y-1/2 flex flex-wrap justify-center items-center gap-2 px-4">
-                    <Link 
-                        to="/"
-                        className={`text-sm font-medium px-6 py-3 rounded-xl shadow ${selectedCategory === "Semua" ? "btn-pink text-white" : "btn-default text-zinc-800"}`}
-                        onClick={() => handleCategoryChange("Semua")}
-                    >
-                        Semua
-                    </Link>
-                    <Link 
-                        to="/artikel"
-                        className={`text-sm font-medium px-4 py-2 rounded-lg ${selectedCategory === "Artikel & Panduan" ? "btn-pink text-white" : "btn-default text-zinc-800"}`}
-                        onClick={() => handleCategoryChange("Artikel & Panduan")}
-                    >
-                        Artikel & Panduan
-                    </Link>
-                    <Link 
-                        to="/tips"
-                        className={`text-sm font-medium px-4 py-2 rounded-lg ${selectedCategory === "Tips & Trik" ? "btn-pink text-white" : "btn-default text-zinc-800"}`}
-                        onClick={() => handleCategoryChange("Tips & Trik")}
-                    >
-                        Tips & Trik
-                    </Link>
-                    <Link 
-                        to="/grup-komunitas"
-                        className={`text-sm font-medium px-4 py-2 rounded-lg ${selectedCategory === "Grup & Komunitas" ? "btn-pink text-white" : "btn-default text-zinc-800"}`}
-                        onClick={() => handleCategoryChange("Grup & Komunitas")}
-                    >
-                        Grup & Komunitas
-                    </Link>
-                </div>
-    
-                {/* Articles Section */}
-                <div className="w-full px-4 md:px-0 mt-8">
-                    <FiturCard cards={filteredCards} />
-                </div>
-            </div>
-        );
+            </main>
+        </div>
+    );
 }
 
 export default Artikel;

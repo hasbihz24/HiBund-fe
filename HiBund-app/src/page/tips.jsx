@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom"; 
 import imgchild1 from "../../public/child.jpg";
 import imgchild2 from "../../public/child2.png";
 import imgchild3 from "../../public/child3.png";
@@ -12,8 +11,10 @@ import imgchild9 from "../../public/child9.png";
 import imgchild10 from "../../public/child10.png";
 import imgchild11 from "../../public/child11.png";
 import imgchild12 from "../../public/child12.png";
-import imgchild13 from "../../public/jumbo-child.png";
 import FiturCard from "../components/fitur-card";
+import imgchild13 from "../../public/jumbo-child.png";
+import { Link } from 'react-router-dom';
+
 
 function Tips() {
      // State for managing the selected category
@@ -37,7 +38,7 @@ function Tips() {
         {
             nama: "Tips & Trik",
             judul: "Mengajarkan Anak Nilai-Nilai Empati dan Kebaikan",
-            text: "Cara efektif untuk menanamkan empati dan kebaikan pada anak melalui contoh dan kegiatan sehari-hari..",
+            text: "Cara efektif untuk menanamkan empati dan kebaikan pada anak melalui contoh dan kegiatan sehari-hari.",
             img: imgchild12,
             next: "Baca Selengkapnya →"
         },
@@ -50,8 +51,8 @@ function Tips() {
         },
         {
             nama: "Tips & Trik",
-            judul: "Cara Menghadapi Bullying: Dukungan untuk Anak dan.",
-            text: "Tips untuk membantu anak yang mengalami bullying dan cara mencegahnya..",
+            judul: "Cara Menghadapi Bullying: Dukungan untuk Anak dan Orang Tua",
+            text: "Tips untuk membantu anak yang mengalami bullying dan cara mencegahnya.",
             img: imgchild9,
             next: "Baca Selengkapnya →"
         },
@@ -78,8 +79,8 @@ function Tips() {
         },
         {
             nama: "Tips & Trik",
-            judul: "Aktivitas Seru dan Edukatif untuk Meningkatkan Kreatif..",
-            text: "Ide aktivitas yang menyenangkan dan mendidik untuk anak-anak di rumah..",
+            judul: "Aktivitas Seru dan Edukatif untuk Meningkatkan Kreativitas Anak",
+            text: "Ide aktivitas yang menyenangkan dan mendidik untuk anak-anak di rumah.",
             img: imgchild10,
             next: "Baca Selengkapnya →"
         },
@@ -92,7 +93,7 @@ function Tips() {
         },
         {
             nama: "Tips & Trik",
-            judul: "Panduan Lengkap untuk Menjaga Kesehatan Mental..",
+            judul: "Panduan Lengkap untuk Menjaga Kesehatan Mental Anak di Era Digital",
             text: "Tips untuk membantu anak tetap sehat secara mental dalam menghadapi dunia digital.",
             img: imgchild2,
             next: "Baca Selengkapnya →"
@@ -106,61 +107,34 @@ function Tips() {
         },
     ];
 
-         // Function to handle category change
-         const handleCategoryChange = (category) => {
-            setSelectedCategory(category);
-        };
-    
-        // Filtered cards based on the selected category
-        const filteredCards = selectedCategory === "Semua"
-            ? cards
-            : cards.filter(card => card.nama === selectedCategory);
+    return (
+        <div className="bg-white">
+            <main className="container mx-auto py-12">
+                <section className="flex flex-col items-center">
+                    <img src={imgchild13} alt='banner' className='w-full h-full object-cover' />
+                    <div className="flex space-x-4 mt-5">
+                            <button className="bg-gray-400 hover:bg-gray-500 text-white text-sm font-medium px-6 py-3 rounded-xl shadow">
+                              Semua
+                            </button>
+                            <button className="bg-gray-400 hover:bg-gray-500 text-white text-sm font-medium px-6 py-3 rounded-xl shadow">
+                                Artikel & Panduan
+                            </button>
+                            <button className="bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium px-6 py-3 rounded-xl shadow">
+                                Tips & Trik
+                            </button>
+                            <button className="bg-gray-400 hover:bg-gray-500 text-white text-sm font-medium px-6 py-3 rounded-xl shadow">
+                                Grup & Komunitas
+                            </button>
+                        </div>
+                </section>
 
-            return (
-                <div className="w-full h-screen flex flex-col items-center bg-white relative overflow-y-auto">
-                    {/* Main Content Overlay */}
-                    <div className="flex justify-center items-center w-full h-full md:mt-[-5%]">
-                        <img src={imgchild13} className="max-w-full max-h-full object-contain" alt="child" />
-                    </div>
-        
-                    {/* Categories Section */}
-                    <div className="absolute top-[68%] transform -translate-y-1/2 flex flex-wrap justify-center items-center gap-2 px-4">
-                        <Link 
-                            to="/"
-                            className={`text-sm font-medium px-6 py-3 rounded-xl shadow ${selectedCategory === "Semua" ? "btn-pink text-white" : "btn-default text-zinc-800"}`}
-                            onClick={() => handleCategoryChange("Semua")}
-                        >
-                            Semua
-                        </Link>
-                        <Link 
-                            to="/artikel"
-                            className={`text-sm font-medium px-4 py-2 rounded-lg ${selectedCategory === "Artikel & Panduan" ? "btn-pink text-white" : "btn-default text-zinc-800"}`}
-                            onClick={() => handleCategoryChange("artikel")}
-                        >
-                            Artikel & Panduan
-                        </Link>
-                        <Link 
-                            to="/tips"
-                            className={`text-sm font-medium px-4 py-2 rounded-lg ${selectedCategory === "Tips & Trik" ? "btn-pink text-white" : "btn-default text-zinc-800"}`}
-                            onClick={() => handleCategoryChange("tips")}
-                        >
-                            Tips & Trik
-                        </Link>
-                        <Link 
-                            to="/grup-komunitas"
-                            className={`text-sm font-medium px-4 py-2 rounded-lg ${selectedCategory === "Grup & Komunitas" ? "btn-pink text-white" : "btn-default text-zinc-800"}`}
-                            onClick={() => handleCategoryChange("Grup & Komunitas")}
-                        >
-                            Grup & Komunitas
-                        </Link>
-                    </div>
-        
-                    {/* Articles Section */}
-                    <div className="w-full px-4 md:px-0 mt-8">
-                        <FiturCard cards={filteredCards} />
-                    </div>
-                </div>
-            );
+                 <section className="px-4 mt-10 md:px-0">
+                    <FiturCard cards={cards} />
+                 </section>
+
+            </main>
+        </div>
+    );
 }
 
 export default Tips;
