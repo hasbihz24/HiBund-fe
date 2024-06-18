@@ -8,16 +8,23 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import NavBar from "./components/navbar";
 import Footer from "./components/footer";
 import Profil from "./Pages/profil";
-import EditProfile from "./pages/edit-profil";
 
 
 
 function App() {
   return (
     <>
-      
-     <EditProfile></EditProfile>
-      
+      <NavBar></NavBar>
+       <Routes>
+       <Route path="/" element={<Login/>}></Route>
+       <Route path="/regis" element={<Register/>}></Route>
+       <Route path="/forget" element={<Forget/>}></Route>
+       <Route path="/otp" element={<Verify/>}></Route>
+       <Route path="/ubah" element={<ChangePassword/>}></Route>
+       <Route path="/otpLanjut" element={<VerifyLanjut/>}></Route>
+       <Route path="/profil" element={<Profil/>}></Route>
+       </Routes>
+       <Footer></Footer>
     </>
   );
 }
