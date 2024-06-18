@@ -106,35 +106,42 @@ function Fitur() {
             next: "Baca Selengkapnya →"
         },
     ];
+    return (
+        <div className="bg-white">
+            <main className="container mx-auto py-12">
+                <section className="flex flex-col items-center">
+                    <img src={imgchild13} alt='banner' className='w-full h-full object-cover' />
+                    <div className="flex space-x-4 mt-5">
+                        <Link to="/">
+                            <button className="bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium px-6 py-3 rounded-xl shadow">
+                                Semua
+                            </button>
+                        </Link>
+                        <Link to="/artikel">
+                            <button className="bg-gray-400 hover:bg-gray-500 text-white text-sm font-medium px-6 py-3 rounded-xl shadow">
+                                Artikel & Panduan
+                            </button>
+                        </Link>
+                        <Link to="/tips">
+                            <button className="bg-gray-400 hover:bg-gray-500 text-white text-sm font-medium px-6 py-3 rounded-xl shadow">
+                                Tips & Trik
+                            </button>
+                        </Link>
+                        <Link to="/grup">
+                            <button className="bg-gray-400 hover:bg-gray-500 text-white text-sm font-medium px-6 py-3 rounded-xl shadow">
+                                Grup & Komunitas
+                            </button>
+                        </Link>
+                    </div>
+                </section>
 
-        return (
-            <div className="bg-white">
-                <main className="container mx-auto py-12">
-                    <section className="flex flex-col items-center">
-                        <img src={imgchild13} alt='banner' className='w-full h-full object-cover' />
-                        <div className="flex space-x-4 mt-5">
-                                <button className="bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium px-6 py-3 rounded-xl shadow">
-                                  Semua
-                                </button>
-                                <button className="bg-gray-400 hover:bg-gray-500 text-white text-sm font-medium px-6 py-3 rounded-xl shadow">
-                                    Artikel & Panduan
-                                </button>
-                                <button className="bg-gray-400 hover:bg-gray-500 text-white text-sm font-medium px-6 py-3 rounded-xl shadow">
-                                    Tips & Trik
-                                </button>
-                                <button className="bg-gray-400 hover:bg-gray-500 text-white text-sm font-medium px-6 py-3 rounded-xl shadow">
-                                    Grup & Komunitas
-                                </button>
-                            </div>
-                    </section>
-    
-                     <section className="px-4 mt-10 md:px-0">
-                        <FiturCard cards={cards} />
-                     </section>
-    
-                </main>
-            </div>
-        );
+                <section className="px-4 mt-10 md:px-0">
+                    <FiturCard cards={cards} />
+                </section>
+
+            </main>
+        </div>
+    );
 }
 
 export default Fitur;
