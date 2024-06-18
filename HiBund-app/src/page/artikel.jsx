@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom untuk mengarahkan ke halaman lain
-import imgchild1 from "../../public/child.jpg";
-import imgchild2 from "../../public/child2.png";
-import imgchild3 from "../../public/child3.png";
-import imgchild4 from "../../public/child4.png";
-import imgchild5 from "../../public/child5.png";
+import { Link } from "react-router-dom"; 
+import imgchild19 from "../../public/child19.png";
+import imgchild18 from "../../public/child18.png";
+import imgchild17 from "../../public/child17.png";
+import imgchild16 from "../../public/child16.png";
+import imgchild15 from "../../public/child15.png";
 import imgchild6 from "../../public/child6.png";
-import imgchild7 from "../../public/child7.png";
+import imgchild14 from "../../public/child14.png";
 import imgchild8 from "../../public/child8.png";
 import imgchild9 from "../../public/child9.png";
 import imgchild10 from "../../public/child10.png";
@@ -15,59 +15,58 @@ import imgchild12 from "../../public/child12.png";
 import imgchild13 from "../../public/jumbo-child.png";
 import FiturCard from "../components/fitur-card";
 
-function Fitur() {
+function Artikel() {
     // State for managing the selected category
     const [selectedCategory, setSelectedCategory] = useState("Semua");
 
-    // List of all articles
     const cards = [
         {
-            nama: "Tips & Trik",
+            nama: "Artikel & Panduan",
             judul: "10 Tips Efektif untuk Mengatasi Tantrum pada Anak Balita",
             text: "Strategi praktis untuk menenangkan anak saat mereka mengalami tantrum.",
-            img: imgchild1,
+            img: imgchild19,
             next: "Baca Selengkapnya →"
         },
         {
             nama: "Artikel & Panduan",
             judul: "Panduan Lengkap untuk Menjaga Kesehatan Mental..",
             text: "Tips untuk membantu anak tetap sehat secara mental dalam menghadapi dunia digital.",
-            img: imgchild2,
+            img: imgchild18,
             next: "Baca Selengkapnya →"
         },
         {
             nama: "Artikel & Panduan",
             judul: "Mengatasi Perilaku Anak yang Sulit: Panduan untuk Orang Tua",
             text: "Strategi untuk memahami dan mengatasi perilaku yang menantang pada anak.",
-            img: imgchild3,
+            img: imgchild17,
             next: "Baca Selengkapnya →"
         },
         {
-            nama: "Tips & Trik",
+            nama: "Artikel & Panduan",
             judul: "Cara Membangun Kebiasaan Belajar yang Positif pada Anak",
             text: "Trik untuk mendorong kebiasaan belajar yang baik sejak dini.",
-            img: imgchild4,
+            img: imgchild16,
             next: "Baca Selengkapnya →"
         },
         {
-            nama: "Tips & Trik",
+            nama: "Artikel & Panduan",
             judul: "Rahasia Menjaga Keseimbangan Antar Pekerjaan",
             text: "Tips bagi orang tua yang bekerja untuk tetap produktif sambil mengasuh anak.",
-            img: imgchild5,
+            img: imgchild15,
             next: "Baca Selengkapnya →"
         },
         {
-            nama: "Tips & Trik",
+            nama: "Artikel & Panduan",
             judul: "Membangun Komunikasi Efektif dengan Remaja Anda",
             text: "Cara berkomunikasi dengan anak remaja agar mereka merasa didengar dan dipahami.",
             img: imgchild6,
             next: "Baca Selengkapnya →"
         },
         {
-            nama: "Tips & Trik",
+            nama: "Artikel & Panduan",
             judul: "Pentingnya Rutinitas Tidur yang Baik untuk Anak-Anak",
             text: "Tips untuk menciptakan rutinitas tidur yang sehat dan konsisten bagi anak.",
-            img: imgchild7,
+            img: imgchild14,
             next: "Baca Selengkapnya →"
         },
         {
@@ -78,14 +77,14 @@ function Fitur() {
             next: "Baca Selengkapnya →"
         },
         {
-            nama: "Tips & Trik",
+            nama: "Artikel & Panduan",
             judul: "Cara Menghadapi Bullying: Dukungan untuk Anak dan.",
             text: "Tips untuk membantu anak yang mengalami bullying dan cara mencegahnya..",
             img: imgchild9,
             next: "Baca Selengkapnya →"
         },
         {
-            nama: "Tips & Trik",
+            nama: "Artikel & Panduan",
             judul: "Aktivitas Seru dan Edukatif untuk Meningkatkan Kreatif..",
             text: "Ide aktivitas yang menyenangkan dan mendidik untuk anak-anak di rumah..",
             img: imgchild10,
@@ -99,7 +98,7 @@ function Fitur() {
             next: "Baca Selengkapnya →"
         },
         {
-            nama: "Tips & Trik",
+            nama: "Artikel & Panduan",
             judul: "Mengajarkan Anak Nilai-Nilai Empati dan Kebaikan",
             text: "Cara efektif untuk menanamkan empati dan kebaikan pada anak melalui contoh dan kegiatan sehari-hari..",
             img: imgchild12,
@@ -107,8 +106,8 @@ function Fitur() {
         },
     ];
 
-    // Function to handle category change
-    const handleCategoryChange = (category) => {
+     // Function to handle category change
+     const handleCategoryChange = (category) => {
         setSelectedCategory(category);
     };
 
@@ -116,6 +115,7 @@ function Fitur() {
     const filteredCards = selectedCategory === "Semua"
         ? cards
         : cards.filter(card => card.nama === selectedCategory);
+
         return (
             <div className="w-full h-screen flex flex-col items-center bg-white relative overflow-y-auto">
                 {/* Main Content Overlay */}
@@ -163,4 +163,4 @@ function Fitur() {
         );
 }
 
-export default Fitur;
+export default Artikel;
