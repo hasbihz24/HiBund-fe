@@ -14,7 +14,7 @@ import imgchild11 from "../../public/child11.png";
 import imgchild12 from "../../public/child12.png";
 import FiturCard from "../components/fitur-card";
 
-function App() {
+function Profil() {
     const cards = [
         {
             nama: "Tips & Trik",
@@ -145,10 +145,17 @@ function App() {
                                 Bagikan Profil
                             </button>
                         </div>
+                        <div className="w-full mt-9 md:w-96 h-14 px-4 md:px-36 flex space-x-2 justify-between items-center relative">
+                            {/* Pseudo-element untuk garis bawah yang lebih panjang */}
+                            <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gray-400" style={{ left: '-70%', right: '-70%' }}></div>
+                            <button className="text-center text-zinc-800 text-sm md:text-lg font-medium font-['Inter']" style={{ marginBottom: '8px', marginLeft: '-70%', marginRight: '-70%' }}>Postingan</button>
+                            <button className="text-center text-gray-300 text-sm md:text-lg font-medium font-['Inter']" style={{ marginBottom: '8px', marginLeft: '-70%', marginRight: '-70%' }}>Grup & Komunitas</button>
+                            <button className="text-center text-gray-300 text-sm md:text-lg font-medium font-['Inter']" style={{ marginBottom: '8px', marginLeft: '-70%', marginRight: '-70%' }}>Inbox</button>
+                        </div>
                     </div>
                 </section>
 
-                <section className="px-4 mt-40 md:mt-80 md:px-0">
+                <section className="px-4 mt-56 md:mt-96 md:px-0"> {/* Menambahkan margin-top lebih besar */}
                     <FiturCard cards={cards} />
                 </section>
             </main>
@@ -156,4 +163,4 @@ function App() {
     );
 }
 
-export default App;
+export default Profil;
