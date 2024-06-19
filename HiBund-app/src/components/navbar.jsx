@@ -1,26 +1,10 @@
-
 function NavBar() {
-  return (
-    <nav className="navbar navbar-expand-lg navbar-light mt-2">
+    return (<nav className="navbar navbar-expand-lg navbar-light mt-2">
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
-          <img
-            src="logo.png"
-            alt=""
-            width="110"
-            height="32"
-            className="d-inline-block align-text-top"
-          />
+          <img src="logo.png" alt="" width="110" height="32" className="d-inline-block align-text-top"/>
         </a>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse justify-content-center font-navbar font-black" id="navbarNav">
@@ -51,8 +35,6 @@ function NavBar() {
           <button className="btn btn-pink font-masuk px-4 py-2" type="submit">Masuk</button>
         </form>
       </div>
-    </nav>
-  );
+    </nav>);
 }
-
 export default NavBar;
