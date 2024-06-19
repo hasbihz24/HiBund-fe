@@ -1,8 +1,6 @@
 import { Container, Row, Col, Button } from "reactstrap";
-
 function Testimonial() {
-  return (
-    <Container className="mx-5 mt-4 testimonial">
+    return (<Container className="mx-5 mt-4 testimonial">
       <Row>
         <Col md={4}>
           <p className="font-pink fs-6">Testimoni</p>
@@ -16,19 +14,18 @@ function Testimonial() {
           <Row>
             <Col md={3}>
               <Button>
-                <img src="arrow-left.svg" />
+                <img src="arrow-left.svg"/>
               </Button>
             </Col>
             <Col md={3}>
               <Button>
-                <img src="arrow-right.svg" />
+                <img src="arrow-right.svg"/>
               </Button>
             </Col>
           </Row>
         </Col>
         <Col md={6}></Col>
       </Row>
-    </Container>
-  );
+    </Container>);
 }
 export default Testimonial;

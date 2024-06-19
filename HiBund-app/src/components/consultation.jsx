@@ -1,8 +1,6 @@
 import { Container, Row, Col, Button } from "reactstrap";
-
 function Consultation() {
-  return (
-    <Container className="mx-5 mt-4">
+    return (<Container className="mx-5 mt-4">
       <Row className="align-items-center">
         <Col md={5}>
           <h1 style={{ fontWeight: "700" }}>Konsultasikan dengan para ahli</h1>
@@ -17,15 +15,9 @@ function Consultation() {
           </Button>
         </Col>
         <Col md={5} className="mx-5 mt-3">
-          <img
-            src="hybridwork.png"
-            alt="Consultation session"
-            className="img-fluid rounded"
-          />
+          <img src="hybridwork.png" alt="Consultation session" className="img-fluid rounded"/>
         </Col>
       </Row>
-    </Container>
-  );
+    </Container>);
 }
-
 export default Consultation;

@@ -1,9 +1,7 @@
 import React from 'react';
 import { Nav, NavItem, NavLink } from 'reactstrap';
-
-function Navigation()  {
-  return (
-    <Nav className="justify-content-center my-5 navigation">
+function Navigation() {
+    return (<Nav className="justify-content-center my-5 navigation">
       <NavItem className='nav-item-custom'>
         <NavLink href="#" className="nav-link-custom active">Brainstorming</NavLink>
       </NavItem>
@@ -22,8 +20,7 @@ function Navigation()  {
       <NavItem className='nav-item-custom'>
         <NavLink href="#" className="nav-link-custom active">Research & Design</NavLink>
       </NavItem>
-    </Nav>
-  );
-};
-
+    </Nav>);
+}
+;
 export default Navigation;
