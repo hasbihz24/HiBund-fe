@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import NavBar from "./components/navbar";
 import Footer from "./components/footer";
 import Profil from "./Pages/profil";
+import EditProfile from "./Pages/edit-profil";
 
 
 
@@ -23,8 +24,9 @@ function App() {
        <Route path="/ubah" element={<ChangePassword/>}></Route>
        <Route path="/otpLanjut" element={<VerifyLanjut/>}></Route>
        <Route path="/profil" element={<Profil/>}></Route>
+       <Route path="/edit-profil" element={<EditProfile/>}></Route>
        </Routes>
-       <Footer></Footer>
+       {/*<Footer></Footer>*/}
     </>
   );
 }

@@ -13,6 +13,7 @@ import imgchild10 from "../../public/child10.png";
 import imgchild11 from "../../public/child11.png";
 import imgchild12 from "../../public/child12.png";
 import FiturCard from "../components/fitur-card";
+import { Link } from 'react-router-dom';
 
 function Profil() {
     const cards = [
@@ -132,9 +133,9 @@ function Profil() {
                             </div>
                         </div>
                         <div className="flex flex-wrap justify-center space-x-2 md:space-x-4">
-                            <button className="bg-slate-50 border border-black hover:bg-pink-500 text-black font-bold py-1 px-2 md:py-2 md:px-4 rounded">
+                            <Link to="/edit-profil" className="bg-slate-50 border border-black hover:bg-pink-500 text-black font-bold py-1 px-2 md:py-2 md:px-4 rounded">
                                 Edit Profil
-                            </button>
+                            </Link>
                             <button className="bg-slate-50 border border-black hover:bg-pink-500 text-black font-bold py-1 px-2 md:py-2 md:px-4 rounded">
                                 Edit Postingan
                             </button>
