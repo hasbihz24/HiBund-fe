@@ -26,7 +26,7 @@ function App() {
        <Route path="/profil" element={<Profil/>}></Route>
        <Route path="/edit-profil" element={<EditProfile/>}></Route>
        </Routes>
-       {/*<Footer></Footer>*/}
+       <Footer></Footer>
     </>
   );
 }
