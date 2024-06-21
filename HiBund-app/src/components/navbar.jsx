@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom"; 
 function NavBar() {
   return (
     <nav className="bg-white mt-2">
@@ -48,9 +48,12 @@ function NavBar() {
           </ul>
         </div>
         <form className="hidden lg:block">
+          <Link to={"/login"}>
           <button className=" px-4 py-2 btn-pink" type="submit">
             Masuk
           </button>
+          
+          </Link>
         </form>
       </div>
     </nav>
