@@ -114,7 +114,7 @@ const Login = () => {
                 value={values.email}
                 onChange={handleInput}
                 required />
-                {errors.email && <span className='text-red-600'>{errors.email}</span>}
+                {errors.email && <span className='text-pink-500'>{errors.email}</span>}
             </div>
 
       {/* Password Input */}
@@ -130,7 +130,7 @@ const Login = () => {
                   onChange={handleInput}
                   value={values.password}
                   required />
-                  {errors.password && <span className='text-red-600'>{errors.password}</span>}
+                  {errors.password && <span className='text-pink-500'>{errors.password}</span>}
 
                 {/* SVG Icons for Eye and Eye Slash */}
                 <div onClick={toggleShowPassword} className="absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer">

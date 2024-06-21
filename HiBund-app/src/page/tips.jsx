@@ -113,7 +113,7 @@ function Tips() {
                 <section className="flex flex-col items-center">
                     <img src={imgchild13} alt='banner' className='w-full h-full object-cover' />
                     <div className="flex space-x-4 mt-5">
-                        <Link to="/">
+                        <Link to="/fiturall">
                             <button className="bg-gray-400 hover:bg-gray-500 text-white text-sm font-medium px-6 py-3 rounded-xl shadow">
                                 Semua
                             </button>
