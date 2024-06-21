@@ -36,7 +36,7 @@ function NavBar() {
               </a>
             </li>
             <li className="nav-item m-2">
-              <a className="text-gray-500 hover:text-gray-900" href="#">
+              <a className="text-gray-500 hover:text-gray-900" href="/konsultasi">
                 Konsultasi
               </a>
             </li>
