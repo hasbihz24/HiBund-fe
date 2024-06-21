@@ -30,7 +30,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Simple validation example
+
     let validationErrors = {};
     if (!values.email) {
       validationErrors.email = 'Email is required';

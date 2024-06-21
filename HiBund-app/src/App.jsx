@@ -15,9 +15,9 @@ import EditProfile from "./pages/edit-profil";
 function App() {
   return (
     <>
-
+      <NavBar></NavBar>
        <Routes>
-       <Route path="/" element={<Login/>}></Route>
+       <Route path="/login" element={<Login/>}></Route>
        <Route path="/regis" element={<Register/>}></Route>
        <Route path="/forget" element={<Forget/>}></Route>
        <Route path="/otp" element={<Verify/>}></Route>
@@ -26,6 +26,7 @@ function App() {
        <Route path="/profil" element={<Profil/>}></Route>
        <Route path="/edit-profil" element={<EditProfile/>}></Route>
        </Routes>
+       <Footer></Footer>
 
     </>
   );

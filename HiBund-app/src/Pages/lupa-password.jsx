@@ -1,8 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import imglogin from "../assets/login.png";
 import BackButton from '../components/back-button'; 
+import { useNavigate } from 'react-router-dom';
+
 
 const Forget = () => {
+    const [email, setEmail] = useState('');
+    const navigate = useNavigate()
+  
+    const handleVerify = async (e) => {
+      e.preventDefault()
+      try {
+        const sendmail = {
+          email: email
+        }
+        const send = async (data) => {
+          //const response = await axios.post("", data)
+          return response.data.message
+        }
+        const message = await send(sendmail)
+        if (message === "Email Terdaftar") {
+          navigate("/otp",{state:{sendmail}})
+        } else {
+          alert(message)
+        }
+      } catch (err) {
+        console.error(err)
+      }
+};
+
   return (
     <section className="min-h-screen flex items-center justify-center">
     <div className="flex flex-col md:flex-row rounded-2xl p-5 items-center md:items-stretch gap-y-8 md:gap-x-8 bg-white shadow-lg">
@@ -36,7 +62,7 @@ const Forget = () => {
             </div>
 
             {/* Form */}
-            <form  className="flex flex-col gap-4 mt-2 md:mt-8">
+            <form className="flex flex-col gap-4 mt-2 md:mt-8" onSubmit={handleVerify}>
                 {/* Email Input */}
                 <div className="flex flex-col gap-2">
                     <label htmlFor="email" className="text-xl font-bold">Email</label>
@@ -47,6 +73,7 @@ const Forget = () => {
                         name="email"
                         autoComplete="off"
                         placeholder="Masukkan email anda"
+                        onChange={(e) => setEmail(e.target.value)}
                         required />
                 </div>
 

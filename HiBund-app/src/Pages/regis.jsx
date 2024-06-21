@@ -50,7 +50,7 @@ const Register = () => {
     
       const handleCloseModal = () => {
         if (modal.success) {
-          navigate('/'); // 
+          navigate('/login'); // 
         } else {
           setModal({ show: false, success: false, message: '' });
           setValues({ nama: '', email: '', no_tlp: '', password: '' });
@@ -190,7 +190,7 @@ const Register = () => {
 
             {/* Already have an account? */}
             <div className="mt-2 text-xs text-center text-gray-600">
-              Sudah memiliki akun? <Link to="/" className="text-pink-500">Masuk</Link>
+              Sudah memiliki akun? <Link to="/login" className="text-pink-500">Masuk</Link>
             </div>
           </form>
         </div>
