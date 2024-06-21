@@ -1,5 +1,4 @@
 import { Container, Row, Col, Button } from "reactstrap";
-
 function Footer() {
   return (
     <div className="footer-container mx-5 mt-5">
@@ -100,5 +99,4 @@ function Footer() {
     </div>
   );
 }
-
 export default Footer;

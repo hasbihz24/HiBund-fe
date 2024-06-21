@@ -1,4 +1,3 @@
-
 function NavBar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light mt-2">
@@ -54,5 +53,4 @@ function NavBar() {
     </nav>
   );
 }
-
 export default NavBar;

@@ -12,7 +12,8 @@ function App() {
     <>
       <NavBar></NavBar>
       <Routes>
-      <Route path="/" element={<Fitur/>}></Route>
+      <Route path="/" element={<Home />}/>
+      <Route path="/fitur" element={<Fitur/>}></Route>
       <Route path="/artikel" element={<Artikel/>}></Route>
       <Route path="/tips" element={<Tips/>}></Route>
       <Route path="/grup" element={<Komunitas/>}></Route>
@@ -24,6 +25,5 @@ function App() {
     </>
   );
 }
-
 
 export default App;
