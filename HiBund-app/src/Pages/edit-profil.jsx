@@ -79,7 +79,7 @@ function EditProfile() {
               value={name}
               placeholder="Nama Pengguna"
               onChange={(e) => setName(e.target.value)}
-              className="mt-1 p-2 border rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm text-base sm:text-sm"
+              className="px-4 py-3 lg:py-4 placeholder-gray-400 bg-white rounded-xl border border-gray-300 text-sm lg:text-base shadow focus:outline-none focus:ring focus:ring-gray-200 focus:shadow-outline w-full sm:text-sm"
               required 
             />
           </div>
@@ -99,7 +99,7 @@ function EditProfile() {
               value={title}
               placeholder="Masukkan Role Anda"
               onChange={(e) => setTitle(e.target.value)}
-              className="mt-1 p-2 border rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm text-base sm:text-sm"
+              className="px-4 py-3 lg:py-4 placeholder-gray-400 bg-white rounded-xl border border-gray-300 text-sm lg:text-base shadow focus:outline-none focus:ring focus:ring-gray-200 focus:shadow-outline w-full sm:text-sm"
               required 
             />
           </div>
@@ -119,7 +119,7 @@ function EditProfile() {
               value={email}
               placeholder="Masukkan email Anda"
               onChange={(e) => setEmail(e.target.value)}
-              className="mt-1 p-2 border rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm text-base sm:text-sm"
+              className="px-4 py-3 lg:py-4 placeholder-gray-400 bg-white rounded-xl border border-gray-300 text-sm lg:text-base shadow focus:outline-none focus:ring focus:ring-gray-200 focus:shadow-outline w-full sm:text-sm"
               required 
             />
           </div>
@@ -139,7 +139,7 @@ function EditProfile() {
               value={phone}
               placeholder="Masukkan nomor telepon Anda"
               onChange={(e) => setPhone(e.target.value)}
-              className="mt-1 p-2 border rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm text-base sm:text-sm"
+              className="px-4 py-3 lg:py-4 placeholder-gray-400 bg-white rounded-xl border border-gray-300 text-sm lg:text-base shadow focus:outline-none focus:ring focus:ring-gray-200 focus:shadow-outline w-full sm:text-sm"
               required 
             />
           </div>
@@ -157,7 +157,7 @@ function EditProfile() {
               value={bio}
               onChange={(e) => setBio(e.target.value)}
               placeholder="Ceritakan tentang diri Anda"
-              className="mt-1 p-2 border rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm text-base sm:text-sm"
+              className="px-4 py-3 lg:py-4 placeholder-gray-400 bg-white rounded-xl border border-gray-300 text-sm lg:text-base shadow focus:outline-none focus:ring focus:ring-gray-200 focus:shadow-outline w-full sm:text-sm"
               required 
             />
           </div>

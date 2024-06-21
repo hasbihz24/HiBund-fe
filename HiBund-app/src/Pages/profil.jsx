@@ -146,22 +146,32 @@ function Profil() {
                                 Bagikan Profil
                             </button>
                         </div>
-                        <div className="w-full mt-9 md:w-96 h-14 px-4 md:px-36 flex space-x-2 justify-between items-center relative">
+                        {/* Menempatkan tombol Postingan sebelum Grup & Komunitas dan Inbox */}
+                        <div className="w-full mt-9 md:w-96 h-14 px-4 md:px-36 flex justify-center items-center relative">
                             {/* Pseudo-element untuk garis bawah yang lebih panjang */}
-                            <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gray-400" style={{ left: '-70%', right: '-70%' }}></div>
-                            <button className="text-center text-zinc-800 text-sm md:text-lg font-medium font-['Inter']" style={{ marginBottom: '8px', marginLeft: '-70%', marginRight: '-70%' }}>Postingan</button>
-                            <button className="text-center text-gray-300 text-sm md:text-lg font-medium font-['Inter']" style={{ marginBottom: '8px', marginLeft: '-70%', marginRight: '-70%' }}>Grup & Komunitas</button>
-                            <button className="text-center text-gray-300 text-sm md:text-lg font-medium font-['Inter']" style={{ marginBottom: '8px', marginLeft: '-70%', marginRight: '-70%' }}>Inbox</button>
+                            <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gray-400" style={{ left: '-85%', right: '-85%', maxWidth: '1200px', marginLeft: 'auto', marginRight: 'auto' }}></div>
+
+                            
+                            {/* Tombol Postingan */}
+                            <button className="text-center text-zinc-800 text-sm md:text-lg font-medium font-['Inter'] mx-40"
+                                style={{ marginBottom: '8px' }}>Postingan</button>
+                            
+                            {/* Tombol Grup & Komunitas */}
+                            <button className="text-center text-gray-300 text-sm md:text-lg font-medium font-['Inter'] mx-40"
+                                style={{ marginBottom: '8px' }}>Grup & Komunitas</button>
+                            
+                            {/* Tombol Inbox */}
+                            <button className="text-center text-gray-300 text-sm md:text-lg font-medium font-['Inter'] mx-40"
+                                style={{ marginBottom: '8px' }}>Inbox</button>
                         </div>
                     </div>
                 </section>
 
-                <section className="px-4 mt-56 md:mt-96 md:px-0"> {/* Menambahkan margin-top lebih besar */}
+                <section className="mt-96">
                     <FiturCard cards={cards} />
                 </section>
             </main>
         </div>
     );
 }
-
 export default Profil;

@@ -18,7 +18,8 @@ import Komunitas from "./page/grup-komunitas";
 function App() {
   return (
     <>
-      <NavBar></NavBar>
+    <NavBar></NavBar>
+      
       <Routes>
        <Route path="/" element={<Home />}/>
        <Route path="/fiturall" element={<Fitur/>}></Route>
@@ -37,6 +38,7 @@ function App() {
 
        </Routes>
        <Footer></Footer>
+ 
     </>
   );
 }

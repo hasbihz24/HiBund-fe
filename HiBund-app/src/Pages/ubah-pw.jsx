@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import imglogin from "../assets/login.png";
+import imglogin from '../assets/login.png';
 import BackButton from '../components/back-button';
 
 const ChangePassword = () => {
@@ -12,11 +12,11 @@ const ChangePassword = () => {
     length: false,
     uppercase: false,
     number: false,
-    specialChar: false
+    specialChar: false,
   });
   const [modal, setModal] = useState({
     show: false,
-    message: ''
+    message: '',
   });
 
   const toggleShowPassword = () => {
@@ -35,7 +35,7 @@ const ChangePassword = () => {
       length: lengthValid,
       uppercase: uppercaseValid,
       number: numberValid,
-      specialChar: specialCharValid
+      specialChar: specialCharValid,
     });
   };
 
@@ -52,20 +52,20 @@ const ChangePassword = () => {
       // Simulate successful password change
       setModal({
         show: true,
-        message: 'Password berhasil diubah!'
+        message: 'Password berhasil diubah!',
       });
       setPassword('');
       setPasswordValidations({
         length: false,
         uppercase: false,
         number: false,
-        specialChar: false
+        specialChar: false,
       });
     } else {
       // Display error message if validations fail (optional)
       setModal({
         show: true,
-        message: 'Pastikan kata sandi memenuhi semua persyaratan.'
+        message: 'Pastikan kata sandi memenuhi semua persyaratan.',
       });
     }
   };
@@ -73,7 +73,7 @@ const ChangePassword = () => {
   const closeModal = () => {
     setModal({
       show: false,
-      message: ''
+      message: '',
     });
 
     // Navigate to login page if password changed successfully
@@ -83,7 +83,7 @@ const ChangePassword = () => {
       passwordValidations.number &&
       passwordValidations.specialChar
     ) {
-      navigate('/login'); 
+      navigate('/login');
     }
   };
 
@@ -111,8 +111,8 @@ const ChangePassword = () => {
 
           {/* Title and Description */}
           <div className="mt-4 md:mt-8">
-            <h2 className="text-black text-2xl lg:text-[32px] font-bold">Buat Kata Sandi Baru</h2>
-            <p className="text-stone-400 text-xs leading-normal mt-2">
+            <h2 className="text-2xl lg:text-3xl font-bold text-black">Buat Kata Sandi Baru</h2>
+            <p className="text-xs md:text-sm text-stone-400 leading-normal mt-2">
               Masukkan kata sandi baru untuk akun Anda.
             </p>
           </div>
@@ -123,12 +123,12 @@ const ChangePassword = () => {
             <div className="flex flex-col gap-2">
               <label htmlFor="email" className="text-xl font-bold">Email</label>
               <input
-                className="px-4 py-3 lg:py-4 placeholder-gray-400 bg-white rounded-xl border border-black text-sm shadow focus:outline-none focus:ring focus:ring-black-200 focus:shadow-outline w-full focus:z-10 sm:text-sm"
+                className="px-4 py-3 lg:py-4 placeholder-gray-400 bg-white rounded-xl border border-gray-300 text-sm lg:text-base shadow focus:outline-none focus:ring focus:ring-gray-200 focus:shadow-outline w-full sm:text-sm"
                 type="email"
                 id="email"
                 name="email"
                 autoComplete="off"
-                placeholder="Masukkan email anda"
+                placeholder="Masukkan email Anda"
                 required
               />
             </div>
@@ -138,11 +138,11 @@ const ChangePassword = () => {
               <label htmlFor="password" className="text-xl font-bold">Kata Sandi</label>
               <div className="relative">
                 <input
-                  className="px-4 py-3 lg:py-4 placeholder-gray-400 bg-white rounded-xl border border-black text-sm shadow focus:outline-none focus:ring focus:ring-black-200 focus:shadow-outline w-full focus:z-10 sm:text-sm"
+                  className="px-4 py-3 lg:py-4 placeholder-gray-400 bg-white rounded-xl border border-gray-300 text-sm lg:text-base shadow focus:outline-none focus:ring focus:ring-gray-200 focus:shadow-outline w-full sm:text-sm"
                   type={showPassword ? 'text' : 'password'}
                   id="password"
                   name="password"
-                  placeholder="Masukkan kata sandi anda"
+                  placeholder="Masukkan kata sandi Anda"
                   onChange={handlePasswordChange}
                   value={password}
                   required
@@ -156,14 +156,7 @@ const ChangePassword = () => {
                       <path d="M3.35 5.47q-.27.24-.518.487A13 13 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z"/>
                     </svg>
                   ) : (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="gray"
-                      className="bi bi-eye"
-                      viewBox="0 0 16 16"
-                    >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray" className="bi bi-eye" viewBox="0 0 16 16">
                       <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
                       <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
                     </svg>
@@ -175,23 +168,23 @@ const ChangePassword = () => {
             {/* Password Requirements */}
             <div className="flex flex-col gap-1 text-xs">
               <div className={passwordValidations.length ? 'text-pink-500' : 'text-slate-400'}>
-                {passwordValidations.length ? '✓' : '◻️'} Password must be between 8 to 32 characters.
+                {passwordValidations.length ? '✓' : '◻️'} Password harus terdiri dari 8 sampai 32 karakter.
               </div>
               <div className={passwordValidations.uppercase ? 'text-pink-500' : 'text-slate-400'}>
-                {passwordValidations.uppercase ? '✓' : '◻️'} Must contain an uppercase character.
+                {passwordValidations.uppercase ? '✓' : '◻️'} Harus mengandung huruf kapital.
               </div>
               <div className={passwordValidations.number ? 'text-pink-500' : 'text-slate-400'}>
-                {passwordValidations.number ? '✓' : '◻️'} Must contain a number.
+                {passwordValidations.number ? '✓' : '◻️'} Harus mengandung angka.
               </div>
               <div className={passwordValidations.specialChar ? 'text-pink-500' : 'text-slate-400'}>
-                {passwordValidations.specialChar ? '✓' : '◻️'} Must contain one special character.
+                {passwordValidations.specialChar ? '✓' : '◻️'} Harus mengandung satu karakter khusus.
               </div>
             </div>
 
             {/* Submit Button */}
             <button
               type="submit"
-              className="bg-pink-500 text-white text-sm font-bold px-6 py-3 rounded-xl shadow hover:shadow-lg hover:opacity-70 outline-none focus:outline-none w-full ease-linear transition-all duration-150 mt-2 md:mt-4"
+              className="bg-pink-500 text-white font-semibold py-3 rounded-lg shadow-md hover:bg-pink-600 transition duration-300 mt-4"
             >
               Ubah Password
             </button>
@@ -201,13 +194,13 @@ const ChangePassword = () => {
 
       {/* Modal */}
       {modal.show && (
-        <div className="fixed inset-0 flex items-center justify-center z-50 bg-gray-900 bg-opacity-50">
-          <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-            <h2 className="text-xl font-semibold mb-4">Berhasil!</h2>
-            <p className="mb-6">{modal.message}</p>
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <div className="bg-white p-8 rounded-lg shadow-lg max-w-md">
+            <h2 className="text-lg font-semibold mb-4">{modal.success ? 'Success' : 'Error'}</h2>
+            <p>{modal.message}</p>
             <button
               onClick={closeModal}
-              className="bg-pink-500 text-white py-2 px-4 rounded hover:bg-pink-600"
+              className="mt-6 bg-pink-500 text-white py-2 px-4 rounded-lg hover:bg-pink-600 transition duration-300"
             >
               Tutup
             </button>
