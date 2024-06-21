@@ -1,21 +1,27 @@
 import React from 'react';
-import { Container, Row, Col, Button } from 'reactstrap';
 function Content() {
-    return (<Container className='mx-5 mt-4'>
-      <Row className="align-items-center">
-        <Col md={4}>
-          <h2 style={{ fontWeight: '700' }}>Brainstorming</h2>
-          <p>
-            Unleash creative ideas and build on them with the help of sticky notes,
-            images, mind maps, videos, drawing capabilities — the list goes on..
-          </p>
-          <Button color="link" className="p-0">Baca Selengkapnya →</Button>
-        </Col>
-        <Col md={7}>
-          <img src="Brainstorm.png" alt="Brainstorming session" className="img-fluid rounded"/>
-        </Col>
-      </Row>
-    </Container>);
+  return (
+    <div className="mx-5 my-12">
+      <div className="container mx-auto">
+        <div className="grid grid-cols-3 grid-rows-2 items-center gap-3">
+          {/* Left Column */}
+          <div className="col-span-1">
+            <h2 className="font-bold text-xl md:text-3xl mb-2">Brainstorming</h2>
+            <p className="text-sm md:text-base text-gray-700 me-5">
+              Unleash creative ideas and build on them with the help of sticky notes,
+              images, mind maps, videos, drawing capabilities — the list goes on..
+            </p>
+            <a href="#" className="text-pink-500 text-sm mt-2 inline-block">Baca Selengkapnya →</a>
+          </div>
+
+          {/* Right Column */}
+          <div className="row-span-2 col-span-2 mt-4 md:mt-0">
+            <img src="Brainstorm.png" alt="Brainstorming session" className="w-full rounded-lg" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 ;
 export default Content;
