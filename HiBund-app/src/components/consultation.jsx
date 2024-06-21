@@ -1,23 +1,26 @@
-import { Container, Row, Col, Button } from "reactstrap";
+
 function Consultation() {
-    return (<Container className="mx-5 mt-4">
-      <Row className="align-items-center">
-        <Col md={5}>
-          <h1 style={{ fontWeight: "700" }}>Konsultasikan dengan para ahli</h1>
-          <p>
-            Tidak perlu menghadapi tantangan parenting sendirian. Kami
-            menyediakan layanan konsultasi langsung dengan para ahli untuk
-            membantu Anda menemukan solusi yang tepat untuk setiap masalah
-            parenting yang Anda hadapi.
-          </p>
-          <Button color="link" className="p-0">
-            Baca Selengkapnya →
-          </Button>
-        </Col>
-        <Col md={5} className="mx-5 mt-3">
-          <img src="hybridwork.png" alt="Consultation session" className="img-fluid rounded"/>
-        </Col>
-      </Row>
-    </Container>);
+  return (
+    <div className="mx-5 mt-4">
+      <div className="container mx-auto">
+        <div className="grid grid-cols-4 md:grid-cols-2 gap-14 items-center">
+          <div className="col-span-1 md:col-span-1 me-14">
+            <h1 className="font-extrabold text-4xl md:text-5xl my-8 tracking-tight">Konsultasikan dengan para ahli</h1>
+            <p className="text-sm md:text-base my-8">
+              Tidak perlu menghadapi tantangan parenting sendirian. Kami
+              menyediakan layanan konsultasi langsung dengan para ahli untuk
+              membantu Anda menemukan solusi yang tepat untuk setiap masalah
+              parenting yang Anda hadapi.
+            </p>
+            <a href="#" className="text-pink-500 text-sm p-0 inline-block">Baca Selengkapnya →</a>
+          </div>
+
+          {/* Column 2 */}
+          <div className="col-span-1 md:col-span-1 mx-5 md:mt-3">
+            <img src="hybridwork.png" alt="Consultation session" className="w-full rounded-lg" />
+          </div>
+        </div>
+      </div>
+    </div>);
 }
 export default Consultation;

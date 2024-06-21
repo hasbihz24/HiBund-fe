@@ -9,22 +9,22 @@ import Testimonial from "../components/testimonial";
 import Footer from "../components/footer";
 import "./home.css";
 function Home() {
-    return (<div>
-      <NavBar />
-      <Jumbotron />
-      <Company />
-      <Introduction />
-      <div className="linebreak"></div>
-      <h1 className="mx-5 font-intro my-5">Artikel & Panduan</h1>
-      <Article />
-      <div className="linebreak"></div>
-      <Consultation />
-      <div className="linebreak"></div>
-      <Join />
-      <div className="linebreak"></div>
-      <Testimonial />
-      <div className="linebreak2"></div>
-      <Footer />
-    </div>);
+  return (<div>
+    <Jumbotron />
+    <div className="linebreak"></div>
+    <Company />
+    <div className="linebreak"></div>
+    <Introduction />
+    <div className="linebreak"></div>
+    <h2 className="mx-5 font-intro my-12">Artikel & Panduan</h2>
+    <Article />
+    <div className="linebreak"></div>
+    <Consultation />
+    <div className="linebreak"></div>
+    <Join />
+    <div className="linebreak"></div>
+    <Testimonial />
+    <div className="linebreak2"></div>
+  </div>);
 }
 export default Home;
