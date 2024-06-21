@@ -1,11 +1,12 @@
 import { Container, Row, Col, Button } from "reactstrap";
 function Footer() {
-    return (<div className="footer-container mx-5 mt-5">
+  return (
+    <div className="footer-container mx-5 mt-5">
       <Container>
         <Row>
           <Col md={3}>
             <Row>
-              <img src="logo-2.png" style={{ width: "80%", height: "" }}/>
+              <img src="logo-2.png" style={{ width: "80%", height: "" }} />
             </Row>
             <Row className="my-3">
               <p style={{ fontSize: "12px" }}>
@@ -66,7 +67,7 @@ function Footer() {
             </Row>
             <Row>
               <p style={{ fontSize: "13px" }}>
-                <img src="email.svg"/> amikom.ac.id
+                <img src="email.svg" /> amikom.ac.id
               </p>
             </Row>
           </Col>
@@ -76,7 +77,7 @@ function Footer() {
         <Row className="mt-5">
             <hr />
             <Col md={6}>
-            <img src="logo-2.png" style={{ width: "20%", height: "" }}/>
+            <img src="logo-2.png" style={{ width: "20%", height: "" }} />
             <p className="my-2" style={{ fontSize: "12px", fontWeight: 700, color: "gray" }}>
             © 2024 • Romusa Proyek Pemograman Universitas Amikom Yogyakarta
             </p>
@@ -95,6 +96,7 @@ function Footer() {
             </Col>
         </Row>
       </Container>
-    </div>);
+    </div>
+  );
 }
 export default Footer;
