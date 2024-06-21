@@ -1,24 +1,81 @@
 import React, { useState } from 'react';
 import imglogin from  "../assets/login.png";
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const[values, setValues] = useState({
+  const [values, setValues] = useState({
     email: '',
     password: ''
-  })
+  });
+  const [errors, setErrors] = useState({});
+  const [showPassword, setShowPassword] = useState(false);
+  const [modal, setModal] = useState({
+    show: false,
+    success: false,
+    message: ''
+  });
 
-  const[errors, setError] = useState({})
+  // Initialize navigate
+  const navigate = useNavigate();
+
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
 
   const handleInput = (e) => {
-      setValues(prev => ({...prev,[e.target.name]: [e.target.value]}))
-  }
+    setValues(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  };
 
- const handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setError(validation(values));
- };
 
+    // Simple validation example
+    let validationErrors = {};
+    if (!values.email) {
+      validationErrors.email = 'Email is required';
+    }
+    if (!values.password) {
+      validationErrors.password = 'Password is required';
+    }
+
+    setErrors(validationErrors);
+
+    if (Object.keys(validationErrors).length === 0) {
+      // Mocking a login process
+      if (values.email === "test@example.com" && values.password === "password123") {
+        setModal({
+          show: true,
+          success: true,
+          message: 'Login berhasil! Selamat datang.'
+        });
+      } else {
+        setModal({
+          show: true,
+          success: false,
+          message: 'Login gagal. Periksa email dan kata sandi Anda.'
+        });
+      }
+    }
+  };
+
+  const closeModal = () => {
+    if (modal.success) {
+      navigate('/'); // Navigate to home if login was successful
+    } else {
+      setModal({
+        show: false,
+        success: false,
+        message: ''
+      });
+      setValues({
+        email: '',
+        password: ''
+      });
+      setErrors({});
+    }
+  };
+  
   return (
     <section className="min-h-screen flex items-center justify-center">
       <div className="flex flex-col md:flex-row rounded-2xl p-5 items-center gap-y-8 md:gap-x-8 bg-white shadow-lg">
@@ -60,26 +117,43 @@ const Login = () => {
                 {errors.email && <span className='text-red-600'>{errors.email}</span>}
             </div>
 
-            {/* Password Input */}
-            <div className="flex flex-col gap-2">
-              <label htmlFor="password" className="text-xl font-bold">Password</label>
+      {/* Password Input */}
+      <div className="flex flex-col gap-2 relative">
+              <label htmlFor="password" className="text-xl font-bold">Kata Sandi</label>
               <div className="relative">
                 <input
                   className="px-4 py-3 lg:py-4 placeholder-gray-400 bg-white rounded-xl border border-black text-sm shadow focus:outline-none focus:ring focus:ring-black-200 focus:shadow-outline w-full focus:z-10 sm:text-sm"
-                  type="password"
+                  type={showPassword ? 'text' : 'password'}
                   id="password"
                   name="password"
-                  autoComplete='off'
-                  placeholder="Masukkan kata sandi Anda"
-                  value={values.password}
+                  placeholder="Masukkan kata sandi anda"
                   onChange={handleInput}
+                  value={values.password}
                   required />
-                {errors.password && <span className='text-red-600'>{errors.password}</span>}
+                  {errors.password && <span className='text-red-600'>{errors.password}</span>}
 
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray" className="bi bi-eye absolute top-1/2 right-3 -translate-y-1/2" viewBox="0 0 16 16">
-                  <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
-                  <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+                {/* SVG Icons for Eye and Eye Slash */}
+                <div onClick={toggleShowPassword} className="absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer">
+                  {showPassword ? (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-slash" viewBox="0 0 16 16">
+                  <path d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7 7 0 0 0-2.79.588l.77.771A6 6 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755q-.247.248-.517.486z"/>
+                  <path d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829"/>
+                  <path d="M3.35 5.47q-.27.24-.518.487A13 13 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z"/>
                 </svg>
+                  ) : (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="gray"
+                      className="bi bi-eye"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
+                      <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+                    </svg>
+                  )}
+                </div>
               </div>
             </div>
 
@@ -136,6 +210,25 @@ const Login = () => {
               </button>
             </div>
           </div>
+
+              {/* Modal Component */}
+      {modal.show && (
+        <div className="fixed inset-0 flex items-center justify-center z-50 bg-gray-900 bg-opacity-50">
+          <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+            <h2 className="text-xl font-semibold mb-4">
+              {modal.success ? 'Berhasil!' : 'Gagal!'}
+            </h2>
+            <p className="mb-6">{modal.message}</p>
+            <button
+              onClick={closeModal}
+              className="bg-pink-500 text-white py-2 px-4 rounded hover:bg-pink-600"
+            >
+              {modal.success ? 'Masuk ke Home' : 'Coba Lagi'}
+            </button>
+          </div>
+        </div>
+      )}
+
         </div>
       </div>
     </section>
