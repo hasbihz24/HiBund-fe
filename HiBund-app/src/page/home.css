@@ -135,16 +135,16 @@ button.btn-link:hover {
     height: 100px;
 }
 
-.testimonial button {
+.testimonial .arrow-btn {
     width: auto;
     background-color: white;
-    border-color: #ff4081;
+    border: 1px solid #ff4081;
     border-radius: 100%;
     width: 50px;
     height: 50px;
 }
 
-.testimonial button {
+.testimonial .arrow-btn {
     width: auto;
     background-color: white;
     border-color: #ff4081;
@@ -156,7 +156,7 @@ button.btn-link:hover {
     justify-content: center; 
 }
 
-.testimonial button:hover {
+.testimonial .arrow-btn:hover {
     width: auto;
     background-color: white;
     border-color: #fc9bbb;
