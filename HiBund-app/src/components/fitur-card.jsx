@@ -30,5 +30,4 @@ function FiturCard({ cards }) {
         </div>
     );
 }
-
 export default FiturCard;
