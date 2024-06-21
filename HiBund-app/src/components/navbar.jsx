@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom"; 
 function NavBar() {
   return (
     <nav className="bg-white mt-2">
@@ -36,7 +36,7 @@ function NavBar() {
               </a>
             </li>
             <li className="nav-item m-2">
-              <a className="text-gray-500 hover:text-gray-900" href="#">
+              <a className="text-gray-500 hover:text-gray-900" href="/konsultasi">
                 Konsultasi
               </a>
             </li>
@@ -48,9 +48,12 @@ function NavBar() {
           </ul>
         </div>
         <form className="hidden lg:block">
+          <Link to={"/login"}>
           <button className=" px-4 py-2 btn-pink" type="submit">
             Masuk
           </button>
+          
+          </Link>
         </form>
       </div>
     </nav>
