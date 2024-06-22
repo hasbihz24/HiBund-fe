@@ -139,11 +139,11 @@ function Profil() {
                             <button className="bg-slate-50 border border-black hover:bg-pink-500 text-black font-bold py-1 px-2 md:py-2 md:px-4 rounded">
                                 Edit Postingan
                             </button>
-                            <button className="bg-slate-50 border border-black hover:bg-pink-500 text-black font-bold py-1 px-2 md:py-2 md:px-4 rounded">
-                                Lihat Pesan
-                            </button>
-                            <button className="bg-slate-50 border border-black hover:bg-pink-500 text-black font-bold py-1 px-2 md:py-2 md:px-4 rounded">
+                            <Link to="/bagikan-profil" className="bg-slate-50 border border-black hover:bg-pink-500 text-black font-bold py-1 px-2 md:py-2 md:px-4 rounded">
                                 Bagikan Profil
+                            </Link>
+                            <button className="bg-slate-50 border border-black hover:bg-pink-500 text-black font-bold py-1 px-2 md:py-2 md:px-4 rounded">
+                                Tambah Postingan
                             </button>
                         </div>
                         {/* Menempatkan tombol Postingan sebelum Grup & Komunitas dan Inbox */}
@@ -151,18 +151,17 @@ function Profil() {
                             {/* Pseudo-element untuk garis bawah yang lebih panjang */}
                             <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gray-400" style={{ left: '-85%', right: '-85%', maxWidth: '1200px', marginLeft: 'auto', marginRight: 'auto' }}></div>
 
-                            
-                            {/* Tombol Postingan */}
-                            <button className="text-center text-zinc-800 text-sm md:text-lg font-medium font-['Inter'] mx-40"
+                           {/* Tombol Postingan */}
+                            <button className="text-center text-zinc-800 text-sm md:text-lg font-medium font-['Inter'] mx-40 hover:text-zinc-600"
                                 style={{ marginBottom: '8px' }}>Postingan</button>
-                            
+
                             {/* Tombol Grup & Komunitas */}
-                            <button className="text-center text-gray-300 text-sm md:text-lg font-medium font-['Inter'] mx-40"
+                            <button className="text-center text-zinc-800 text-sm md:text-lg font-medium font-['Inter'] mx-40 hover:text-gray-400"
                                 style={{ marginBottom: '8px' }}>Grup & Komunitas</button>
-                            
+
                             {/* Tombol Inbox */}
-                            <button className="text-center text-gray-300 text-sm md:text-lg font-medium font-['Inter'] mx-40"
-                                style={{ marginBottom: '8px' }}>Inbox</button>
+                            <Link to="/navigasi-inbox" className="text-center text-zinc-800 text-sm md:text-lg font-medium font-['Inter'] mx-40 hover:text-gray-400"
+                                style={{ marginBottom: '8px', textDecoration: 'none' }}>Inbox</Link>
                         </div>
                     </div>
                 </section>
