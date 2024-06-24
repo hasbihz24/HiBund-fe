@@ -18,7 +18,7 @@ import Komunitas from "./page/grup-komunitas";
 function App() {
   return (
     <>
-    <NavBar></NavBar>
+
       
       <Routes>
        <Route path="/" element={<Home />}/>
@@ -37,7 +37,7 @@ function App() {
 
 
        </Routes>
-       <Footer></Footer>
+   
  
     </>
   );

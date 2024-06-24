@@ -142,87 +142,72 @@ const Login = () => {
                   ) : (
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-eye" viewBox="0 0 16 16">
                       <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
-                      <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+                      <path d="M8 5a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm0 1a2 2 0 1 1 0 4 2 2 0 0 1 0-4z" />
                     </svg>
                   )}
                 </div>
               </div>
             </div>
 
-            {/* Remember Me and Forget Password */}
-            <div className="flex justify-between items-center mt-2">
-              <div className="flex items-center">
-                <input
-                  id="remember-me"
-                  type="checkbox"
-                  className="w-4 h-4 text-pink-500 focus:ring-pink-400 border-gray-300 rounded"
-                />
-                <label htmlFor="remember-me" className="ml-2 text-sm lg:text-base text-gray-900">
-                  Ingat saya
-                </label>
-              </div>
-              <Link to="/forget" className="text-sm lg:text-base text-pink-500">Lupa kata sandi?</Link>
-            </div>
-
-            {/* Submit Button */}
             <button
+              className="mt-4 bg-pink-500 hover:bg-pink-400 text-white font-bold py-3 lg:py-4 rounded-xl transition-all duration-300"
               type="submit"
-              className="bg-pink-500 text-white text-sm lg:text-base font-bold px-6 py-3 rounded-xl shadow hover:shadow-lg hover:opacity-70 outline-none focus:outline-none w-full ease-linear transition-all duration-150 mt-4"
             >
-              Login
+              Masuk
             </button>
           </form>
 
-          {/* Social login options */}
-          <div className="w-full flex flex-col justify-center items-center mt-8 space-y-4">
-            <div className="mt-2 flex items-center w-full">
-              <hr className="flex-grow border-gray-500" />
-              <span className="mx-4 text-gray-500">or continue with</span>
-              <hr className="flex-grow border-gray-500" />
+          <div className="mt-8 grid grid-cols-3 items-center text-gray-400">
+            <hr className="border-gray-300" />
+            <p className="text-center text-sm lg:text-base">or continue with</p>
+            <hr className="border-gray-300" />
+          </div>
+
+          <div className="mt-8 flex gap-4 justify-center">
+            {/* Facebook Icon */}
+            <div className="p-2 rounded-xl bg-white hover:bg-gray-200 cursor-pointer transition-all duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path fill="#1877F2" d="M22.675 0h-21.35C.596 0 0 .592 0 1.321v21.358c0 .729.596 1.321 1.325 1.321H12.81V14.706H9.692v-3.62h3.118V8.035c0-3.093 1.892-4.782 4.655-4.782 1.325 0 2.463.099 2.795.143v3.24l-1.917.001c-1.503 0-1.794.715-1.794 1.764v2.313h3.588l-.467 3.62h-3.121V24h6.117c.729 0 1.325-.592 1.325-1.321V1.321C24 .592 23.404 0 22.675 0z" />
+              </svg>
             </div>
-            <div className="flex justify-center gap-4">
-              <button className="px-3 py-2 bg-white rounded-md border border-gray-200 inline-flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 48 48">
-                  <path fill="#039be5" d="M24 5A19 19 0 1 0 24 43A19 19 0 1 0 24 5Z"></path>
-                  <path fill="#fff" d="M26.572,29.036h4.917l0.772-4.995h-5.69v-2.73c0-2.075,0.678-3.915,2.619-3.915h3.119v-4.359c-0.548-0.074-1.707-0.236-3.897-0.236c-4.573,0-7.254,2.415-7.254,7.917v3.323h-4.701v4.995h4.701v13.729C22.089,42.905,23.032,43,24,43c0.875,0,1.729-0.08,2.572-0.194V29.036z"></path>
-                </svg>
-              </button>
-              <button className="px-3 py-2 bg-white rounded-md border border-gray-200 inline-flex items-center">
+            {/* Google Icon */}
+            <div className="p-2 rounded-xl bg-white hover:bg-gray-200 cursor-pointer transition-all duration-300">
                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 48 48">
                   <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.168,29.303,4,24,4c-11.046,0-20,8.954-20,20s8.954,20,20,20c10.131,0,19.122-7.411,19.926-17h0.074V20.083z"></path>
                   <path fill="#FF3D00" d="M6.305,14.691l6.571,4.82C14.3,16.683,18.835,14,24,14c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.168,29.303,4,24,4C15.745,4,8.429,9.139,6.305,14.691z"></path>
                   <path fill="#4CAF50" d="M24,44c5.13,0,9.776-1.959,13.293-5.121l-6.01-4.96C29.962,35.801,27.086,37,24,37c-5.204,0-9.626-3.336-11.288-7.987l-6.432,5.013C8.242,39.17,15.533,44,24,44z"></path>
                   <path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-1.074,3.037-3.207,5.478-5.913,6.933c0.001-0.001,0.001-0.002,0.002-0.002l6.01,4.96c-0.427,0.367,6.996-5.101,6.996-15.891c0-1.342-0.138-2.648-0.388-3.907L43.611,20.083z"></path>
                 </svg>
-              </button>
-              <button className="px-3 py-2 bg-white rounded-md border border-gray-200 inline-flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 48 48">
-                  <path fill="#3F51B5" d="M42,4H6C4.897,4,4,4.897,4,6v36c0,1.103,0.897,2,2,2h18v-15h-5v-6h5v-4.5c0-5.083,3.067-7.5,7.45-7.5c2.119,0,3.933,0.158,4.465,0.228v5.172h-3.06c-2.397,0-2.862,1.138-2.862,2.806V23h6l-1,6h-5v15h9.018c0.982,0,1.811-0.788,1.973-1.75L44,6C44,4.897,43.103,4,42,4z"></path>
-                </svg>
-              </button>
+            </div>
+            {/* LinkedIn Icon */}
+            <div className="p-2 rounded-xl bg-white hover:bg-gray-200 cursor-pointer transition-all duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path fill="#0077B5" d="M22.23 0H1.77C.79 0 0 .77 0 1.75v20.49C0 23.23.77 24 1.77 24H22.23c.98 0 1.77-.77 1.77-1.77V1.75C24 .77 23.23 0 22.23 0zM7.12 20.45H3.56V8.9h3.56v11.55zM5.34 7.41c-1.14 0-2.06-.93-2.06-2.06 0-1.13.92-2.06 2.06-2.06s2.06.93 2.06 2.06c0 1.13-.92 2.06-2.06 2.06zM20.45 20.45h-3.56V14.8c0-1.35-.03-3.09-1.88-3.09-1.88 0-2.17 1.47-2.17 2.99v5.75h-3.56V8.9h3.42v1.58h.05c.48-.91 1.66-1.87 3.42-1.87 3.65 0 4.33 2.4 4.33 5.53v6.31z" />
+              </svg>
             </div>
           </div>
 
-          {/* Modal Component */}
-          {modal.show && (
-            <div className="fixed inset-0 flex items-center justify-center z-50 bg-gray-900 bg-opacity-50">
-              <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-                <h2 className="text-xl lg:text-2xl font-semibold mb-4">
-                  {modal.success ? 'Berhasil!' : 'Gagal!'}
-                </h2>
-                <p className="text-sm lg:text-base mb-6">{modal.message}</p>
-                <button
-                  onClick={closeModal}
-                  className="bg-pink-500 text-white py-2 px-4 rounded hover:bg-pink-600"
-                >
-                  {modal.success ? 'Masuk ke Home' : 'Coba Lagi'}
-                </button>
-              </div>
-            </div>
-          )}
-
         </div>
       </div>
+
+      {/* Modal for login feedback */}
+      {modal.show && (
+        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+          <div className="bg-white p-8 rounded-xl shadow-lg max-w-lg mx-auto">
+            <h3 className={`text-xl font-semibold ${modal.success ? 'text-green-600' : 'text-red-600'}`}>
+              {modal.success ? 'Login Berhasil' : 'Login Gagal'}
+            </h3>
+            <p className="mt-4 text-gray-700">{modal.message}</p>
+            <button
+              onClick={closeModal}
+              className="mt-6 bg-pink-500 hover:bg-pink-400 text-white font-bold py-2 px-4 rounded-xl transition-all duration-300"
+            >
+              {modal.success ? 'Lanjutkan' : 'Coba Lagi'}
+            </button>
+          </div>
+        </div>
+      )}
+
     </section>
   );
 };
