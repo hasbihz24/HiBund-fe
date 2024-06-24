@@ -162,7 +162,6 @@ function Tips() {
                             onChange={(e) => setSearchQuery(e.target.value)}
                         />
                     </div>
-
                 
                     {loading ? (
                         <Loading />
