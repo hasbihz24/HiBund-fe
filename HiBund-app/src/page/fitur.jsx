@@ -14,7 +14,8 @@ import imgchild11 from "../../public/child11.png";
 import imgchild12 from "../../public/child12.png";
 import imgchild13 from "../../public/jumbo-child.png";
 import FiturCard from "../components/fitur-card";
-import Loading from "../components/loading"; 
+import Loading from "../components/loading";
+import Search from "../components/search";
 
 function Fitur() {
     const [searchQuery, setSearchQuery] = useState("");
@@ -152,21 +153,15 @@ function Fitur() {
 
                 <section className="px-4 mt-10 md:px-0">
                     {/* Search Input */}
-                    <div className="flex justify-center mb-8">
-                        <input
-                            type="text"
-                            placeholder="Cari artikel atau kategori..."
-                            className="w-full md:w-1/2 px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring focus:ring-gray-200"
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                        />
-                    </div>
+                    <Search
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                    />
 
-                
+                    {/* Loading or Cards */}
                     {loading ? (
                         <Loading />
                     ) : (
-                        /* Cards */
                         <FiturCard cards={filteredCards.length > 0 ? filteredCards : cards} />
                     )}
                 </section>

@@ -98,7 +98,9 @@ const Register = () => {
                 type="text"
                 id="nama"
                 name="nama"
-                className="px-4 py-3 lg:py-4 placeholder-gray-400 bg-white rounded-xl border border-gray-300 text-sm lg:text-base shadow focus:outline-none focus:ring focus:ring-gray-200 focus:shadow-outline w-full sm:text-sm"
+                className={`px-4 py-3 lg:py-4 placeholder-gray-400 bg-white rounded-xl border border-gray-300 text-sm lg:text-base shadow focus:outline-none focus:ring focus:ring-gray-200 focus:shadow-outline w-full sm:text-sm ${
+                  errors.nama ? 'border-red-500' : ''
+                }`}
                 placeholder="Nama Pengguna"
                 autoComplete="off"
                 autoFocus
@@ -116,7 +118,9 @@ const Register = () => {
                 type="email"
                 id="email"
                 name="email"
-                className="px-4 py-3 lg:py-4 placeholder-gray-400 bg-white rounded-xl border border-gray-300 text-sm lg:text-base shadow focus:outline-none focus:ring focus:ring-gray-200 focus:shadow-outline w-full sm:text-sm"
+                className={`px-4 py-3 lg:py-4 placeholder-gray-400 bg-white rounded-xl border border-gray-300 text-sm lg:text-base shadow focus:outline-none focus:ring focus:ring-gray-200 focus:shadow-outline w-full sm:text-sm ${
+                  errors.email ? 'border-red-500' : ''
+                }`}
                 placeholder="Masukkan email anda"
                 autoComplete="off"
                 value={values.email}
@@ -133,7 +137,9 @@ const Register = () => {
                 type="tel"
                 id="no_tlp"
                 name="no_tlp"
-                className="px-4 py-3 lg:py-4 placeholder-gray-400 bg-white rounded-xl border border-gray-300 text-sm lg:text-base shadow focus:outline-none focus:ring focus:ring-gray-200 focus:shadow-outline w-full sm:text-sm"
+                className={`px-4 py-3 lg:py-4 placeholder-gray-400 bg-white rounded-xl border border-gray-300 text-sm lg:text-base shadow focus:outline-none focus:ring focus:ring-gray-200 focus:shadow-outline w-full sm:text-sm ${
+                  errors.no_tlp ? 'border-red-500' : ''
+                }`}
                 placeholder="Masukkan nomor telepon anda"
                 autoComplete="off"
                 value={values.no_tlp}
@@ -143,12 +149,14 @@ const Register = () => {
               {errors.no_tlp && <span className='text-red-600'>{errors.no_tlp}</span>}
             </div>
 
-     {/* Password Input */}
-     <div className="flex flex-col gap-2 relative">
+            {/* Password Input */}
+            <div className="flex flex-col gap-2 relative">
               <label htmlFor="password" className="text-lg lg:text-xl font-bold">Kata Sandi</label>
               <div className="relative">
                 <input
-                  className="px-4 py-3 lg:py-4 placeholder-gray-400 bg-white rounded-xl border border-gray-300 text-sm lg:text-base shadow focus:outline-none focus:ring focus:ring-gray-200 focus:shadow-outline w-full sm:text-sm"
+                  className={`px-4 py-3 lg:py-4 placeholder-gray-400 bg-white rounded-xl border border-gray-300 text-sm lg:text-base shadow focus:outline-none focus:ring focus:ring-gray-200 focus:shadow-outline w-full sm:text-sm ${
+                    errors.password ? 'border-red-500' : ''
+                  }`}
                   type={showPassword ? 'text' : 'password'}
                   id="password"
                   name="password"
@@ -158,15 +166,15 @@ const Register = () => {
                   value={values.password}
                   required
                 />
-                {errors.password && <span className='text-pink-500'>{errors.password}</span>}
+                {errors.password && <span className='text-red-600'>{errors.password}</span>}
 
                 {/* SVG Icons for Eye and Eye Slash */}
-                <div onClick={toggleShowPassword} className="absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer">
+                <div onClick={toggleShowPassword} className="absolute top-8 right-3 -translate-y-1/2 cursor-pointer">
                   {showPassword ? (
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-eye-slash" viewBox="0 0 16 16">
                       <path d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7 7 0 0 0-2.79.588l.77.771A6 6 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755q-.247.248-.517.486z" />
                       <path d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829" />
-                      <path d="M3.35 5.47q-.27.24-.518.487A13 13 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z" />
+                      <path d="M3.35 5.47q-.27.24-.518.487A13 13 0 0 1 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z" />
                     </svg>
                   ) : (
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-eye" viewBox="0 0 16 16">
@@ -186,7 +194,7 @@ const Register = () => {
             {/* Submit Button */}
             <button
               type="submit"
-                    className="bg-pink-500 text-white text-sm lg:text-base font-bold px-6 py-3 rounded-xl shadow hover:shadow-lg hover:opacity-70 outline-none focus:outline-none w-full ease-linear transition-all duration-150 mt-4"
+              className="bg-pink-500 text-white text-sm lg:text-base font-bold px-6 py-3 rounded-xl shadow hover:shadow-lg hover:opacity-70 outline-none focus:outline-none w-full ease-linear transition-all duration-150 mt-4"
             >
               Daftar
             </button>
@@ -207,7 +215,7 @@ const Register = () => {
             <p>{modal.message}</p>
             <button
               onClick={handleCloseModal}
-               className="bg-pink-500 text-white py-2 px-4 rounded hover:bg-pink-600"
+              className="bg-pink-500 text-white py-2 px-4 rounded hover:bg-pink-600"
             >
               Tutup
             </button>

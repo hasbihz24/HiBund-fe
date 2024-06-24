@@ -13,6 +13,7 @@ import Artikel from "./page/artikel";
 import Home from "./page/home";
 import Tips from "./page/tips";
 import Komunitas from "./page/grup-komunitas";
+import NotFound from "./pages/notfound";
 
 
 function App() {
@@ -34,9 +35,9 @@ function App() {
        <Route path="/ubah" element={<ChangePassword/>}></Route>
        <Route path="/otpLanjut" element={<VerifyLanjut/>}></Route>
        <Route path="/profil" element={<Profil/>}></Route>
-
-
+       <Route path="*" element={<NotFound />} />
        </Routes>
+       
        <Footer></Footer>
  
     </>
