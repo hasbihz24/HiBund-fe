@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom untuk mengarahkan ke halaman lain
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import imgchild1 from "../../public/child.jpg";
 import imgchild2 from "../../public/child2.png";
 import imgchild3 from "../../public/child3.png";
@@ -14,12 +14,13 @@ import imgchild11 from "../../public/child11.png";
 import imgchild12 from "../../public/child12.png";
 import imgchild13 from "../../public/jumbo-child.png";
 import FiturCard from "../components/fitur-card";
+import Loading from "../components/loading"; 
 
 function Fitur() {
-    // State for managing the selected category
-    const [selectedCategory, setSelectedCategory] = useState("Semua");
+    const [searchQuery, setSearchQuery] = useState("");
+    const [filteredCards, setFilteredCards] = useState([]);
+    const [loading, setLoading] = useState(false);
 
-    // List of all articles
     const cards = [
         {
             nama: "Tips & Trik",
@@ -30,7 +31,7 @@ function Fitur() {
         },
         {
             nama: "Artikel & Panduan",
-            judul: "Panduan Lengkap untuk Menjaga Kesehatan Mental..",
+            judul: "Panduan Lengkap untuk Menjaga Kesehatan Mental Anak",
             text: "Tips untuk membantu anak tetap sehat secara mental dalam menghadapi dunia digital.",
             img: imgchild2,
             next: "Baca Selengkapnya →"
@@ -79,15 +80,15 @@ function Fitur() {
         },
         {
             nama: "Tips & Trik",
-            judul: "Cara Menghadapi Bullying: Dukungan untuk Anak dan.",
-            text: "Tips untuk membantu anak yang mengalami bullying dan cara mencegahnya..",
+            judul: "Cara Menghadapi Bullying: Dukungan untuk Anak dan Orang Tua",
+            text: "Tips untuk membantu anak yang mengalami bullying dan cara mencegahnya.",
             img: imgchild9,
             next: "Baca Selengkapnya →"
         },
         {
             nama: "Tips & Trik",
-            judul: "Aktivitas Seru dan Edukatif untuk Meningkatkan Kreatif..",
-            text: "Ide aktivitas yang menyenangkan dan mendidik untuk anak-anak di rumah..",
+            judul: "Aktivitas Seru dan Edukatif untuk Meningkatkan Kreativitas Anak",
+            text: "Ide aktivitas yang menyenangkan dan mendidik untuk anak-anak di rumah.",
             img: imgchild10,
             next: "Baca Selengkapnya →"
         },
@@ -101,11 +102,25 @@ function Fitur() {
         {
             nama: "Tips & Trik",
             judul: "Mengajarkan Anak Nilai-Nilai Empati dan Kebaikan",
-            text: "Cara efektif untuk menanamkan empati dan kebaikan pada anak melalui contoh dan kegiatan sehari-hari..",
+            text: "Cara efektif untuk menanamkan empati dan kebaikan pada anak melalui contoh dan kegiatan sehari-hari.",
             img: imgchild12,
             next: "Baca Selengkapnya →"
         },
     ];
+
+    useEffect(() => {
+        setLoading(true);
+
+        setTimeout(() => {
+            const results = cards.filter(card =>
+                card.judul.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                card.nama.toLowerCase().includes(searchQuery.toLowerCase())
+            );
+            setFilteredCards(results);
+            setLoading(false);
+        }, 500); 
+    }, [searchQuery]);
+
     return (
         <div className="bg-white">
             <main className="container mx-auto py-12">
@@ -136,7 +151,24 @@ function Fitur() {
                 </section>
 
                 <section className="px-4 mt-10 md:px-0">
-                    <FiturCard cards={cards} />
+                    {/* Search Input */}
+                    <div className="flex justify-center mb-8">
+                        <input
+                            type="text"
+                            placeholder="Cari artikel atau kategori..."
+                            className="w-full md:w-1/2 px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring focus:ring-gray-200"
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                        />
+                    </div>
+
+                
+                    {loading ? (
+                        <Loading />
+                    ) : (
+                        /* Cards */
+                        <FiturCard cards={filteredCards.length > 0 ? filteredCards : cards} />
+                    )}
                 </section>
 
             </main>

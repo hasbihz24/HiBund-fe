@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import imgchild1 from "../../public/child.jpg";
 import imgchild2 from "../../public/child2.png";
 import imgchild3 from "../../public/child3.png";
@@ -14,11 +14,12 @@ import imgchild12 from "../../public/child12.png";
 import FiturCard from "../components/fitur-card";
 import imgchild13 from "../../public/jumbo-child.png";
 import { Link } from 'react-router-dom';
-
+import Loading from "../components/loading"; 
 
 function Tips() {
-     // State for managing the selected category
-     const [selectedCategory, setSelectedCategory] = useState("Semua");
+    const [searchQuery, setSearchQuery] = useState("");
+    const [filteredCards, setFilteredCards] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     const cards = [
         {
@@ -107,6 +108,20 @@ function Tips() {
         },
     ];
 
+    
+    useEffect(() => {
+        setLoading(true);
+
+        setTimeout(() => {
+            const results = cards.filter(card =>
+                card.judul.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                card.nama.toLowerCase().includes(searchQuery.toLowerCase())
+            );
+            setFilteredCards(results);
+            setLoading(false);
+        }, 500); 
+    }, [searchQuery]);
+
     return (
         <div className="bg-white">
             <main className="container mx-auto py-12">
@@ -137,7 +152,24 @@ function Tips() {
                 </section>
 
                 <section className="px-4 mt-10 md:px-0">
-                    <FiturCard cards={cards} />
+                    {/* Search Input */}
+                    <div className="flex justify-center mb-8">
+                        <input
+                            type="text"
+                            placeholder="Cari artikel atau kategori..."
+                            className="w-full md:w-1/2 px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring focus:ring-gray-200"
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                        />
+                    </div>
+
+                
+                    {loading ? (
+                        <Loading />
+                    ) : (
+                        /* Cards */
+                        <FiturCard cards={filteredCards.length > 0 ? filteredCards : cards} />
+                    )}
                 </section>
 
             </main>
