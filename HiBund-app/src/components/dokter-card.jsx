@@ -11,7 +11,7 @@ const DokterCard = ({ imgSrc, doctorName, specialist, location, rating }) => {
       </div>
 
       {/* Doctor Image below the logo */}
-      <img src={imgSrc} alt="Doctor" className="w-full h-48 object-cover rounded-md mt-12 mb-4" />
+      <img src={imgSrc} alt="Doctor" className="w-full h-50 rounded-md mt-12 mb-4" />
 
       {/* Doctor Info */}
       <h3 className="text-lg font-medium mb-2">{doctorName}</h3>

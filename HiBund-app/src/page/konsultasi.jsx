@@ -3,6 +3,14 @@ import React from 'react';
 import DokterCard from '../components/dokter-card';
 import imgchild13 from "../../public/jumbo-child.png";
 import imgdokter from "../../public/doctor1.png";
+import imgdokter2 from "../../public/doctor2.png";
+import imgdokter3 from "../../public/doctor3.png";
+import imgdokter4 from "../../public/doctor4.png";
+import imgdokter5 from "../../public/doctor5.png";
+import imgdokter6 from "../../public/doctor6.png";
+import imgdokter7 from "../../public/doctor7.png";
+import imgdokter8 from "../../public/doctor8.png";
+import imgdokter9 from "../../public/doctor9.png";
 
 function Konsultasi() {
   // Sample data for dokter cards
@@ -15,56 +23,56 @@ function Konsultasi() {
       rating: '4.9 (98)',
     },
     {
-      imgSrc: imgdokter,
+      imgSrc: imgdokter2,
       doctorName: 'Dr. Jane Smith',
       specialist: 'Dermatologist',
       location: 'Los Angeles, USA',
       rating: '4.8 (85)',
     },
     {
-        imgSrc: imgdokter,
+        imgSrc: imgdokter3,
         doctorName: 'Dr. Jane Smith',
         specialist: 'Dermatologist',
         location: 'Los Angeles, USA',
         rating: '4.8 (85)',
       },
       {
-        imgSrc: imgdokter,
+        imgSrc: imgdokter4,
         doctorName: 'Dr. Jane Smith',
         specialist: 'Dermatologist',
         location: 'Los Angeles, USA',
         rating: '4.8 (85)',
       },
       {
-        imgSrc: imgdokter,
+        imgSrc: imgdokter5,
         doctorName: 'Dr. Jane Smith',
         specialist: 'Dermatologist',
         location: 'Los Angeles, USA',
         rating: '4.8 (85)',
       },
       {
-        imgSrc: imgdokter,
+        imgSrc: imgdokter6,
         doctorName: 'Dr. Jane Smith',
         specialist: 'Dermatologist',
         location: 'Los Angeles, USA',
         rating: '4.8 (85)',
       },
       {
-        imgSrc: imgdokter,
+        imgSrc: imgdokter7,
         doctorName: 'Dr. Jane Smith',
         specialist: 'Dermatologist',
         location: 'Los Angeles, USA',
         rating: '4.8 (85)',
       },
       {
-        imgSrc: imgdokter,
+        imgSrc: imgdokter8,
         doctorName: 'Dr. Jane Smith',
         specialist: 'Dermatologist',
         location: 'Los Angeles, USA',
         rating: '4.8 (85)',
       },
       {
-        imgSrc: imgdokter,
+        imgSrc: imgdokter9,
         doctorName: 'Dr. Jane Smith',
         specialist: 'Dermatologist',
         location: 'Los Angeles, USA',
