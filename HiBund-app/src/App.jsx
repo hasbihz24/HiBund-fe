@@ -1,12 +1,12 @@
-import Login from "./Pages/login";
+import React from "react";
+import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
+import Login from "./pages/login";
 import Register from "./pages/regis";
 import Forget from "./pages/lupa-password";
 import ChangePassword from "./pages/ubah-pw";
 import Verify from "./pages/verifikasi-otp";
 import VerifyLanjut from "./pages/verify2";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Profil from "./Pages/profil";
-import EditProfile from "./Pages/edit-profil";
 import NavBar from "./components/navbar";
 import Footer from "./components/footer";
 import Fitur from "./page/fitur";
@@ -14,35 +14,38 @@ import Artikel from "./page/artikel";
 import Home from "./page/home";
 import Tips from "./page/tips";
 import Komunitas from "./page/grup-komunitas";
-import NotFound from "./pages/notfound";
 import Konsultasi from "./page/konsultasi";
+import ArtikelFull from "./page/artikel-full";
+
 function App() {
+  const location = useLocation();
+
+  // Paths where the NavBar should be hidden
+  const noNavBarPaths = ["/login", "/regis"];
+
   return (
     <>
-      <NavBar></NavBar>
-      
+      {!noNavBarPaths.includes(location.pathname) && <NavBar />}
+      <main className="pt-3 w-[1053px] mx-auto">
       <Routes>
-       <Route path="/" element={<Home />}/>
-       <Route path="/fitur" element={<Fitur/>}></Route>
-       <Route path="/konsultasi" element={<Konsultasi/>}></Route>
-       <Route path="/artikel" element={<Artikel/>}></Route>
-       <Route path="/tips" element={<Tips/>}></Route>
-       <Route path="/grup" element={<Komunitas/>}></Route>
+        <Route path="/" element={<Home />} />
+        <Route path="/fitur" element={<Fitur />} />
+        <Route path="/konsultasi" element={<Konsultasi />} />
+        <Route path="/artikel" element={<Artikel />} />
+        <Route path="/artikel-full" element={<ArtikelFull />} />
+        <Route path="/tips" element={<Tips />} />
+        <Route path="/grup" element={<Komunitas />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/regis" element={<Register />} />
+        <Route path="/forget" element={<Forget />} />
+        <Route path="/otp" element={<Verify />} />
+        <Route path="/ubah" element={<ChangePassword />} />
+        <Route path="/otpLanjut" element={<VerifyLanjut />} />
+        <Route path="/profil" element={<Profil />} />
+      </Routes>
 
-       <Route path="/login" element={<Login/>}></Route>
-       <Route path="/regis" element={<Register/>}></Route>
-       <Route path="/forget" element={<Forget/>}></Route>
-       <Route path="/otp" element={<Verify/>}></Route>
-       <Route path="/ubah" element={<ChangePassword/>}></Route>
-       <Route path="/otpLanjut" element={<VerifyLanjut/>}></Route>
-       <Route path="/profil" element={<Profil/>}></Route>
-       <Route path="*" element={<NotFound />} />
-       </Routes>
-
-       <Footer></Footer>
-       
-  
- 
+      {!noNavBarPaths.includes(location.pathname) && <Footer />}
+    </main>
     </>
   );
 }

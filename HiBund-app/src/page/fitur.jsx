@@ -128,7 +128,7 @@ function Fitur() {
                 <section className="flex flex-col items-center">
                     <img src={imgchild13} alt='banner' className='w-full h-full object-cover' />
                     <div className="flex space-x-4 mt-5">
-                        <Link to="/fiturall">
+                        <Link to="/fitur">
                             <button className="bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium px-6 py-3 rounded-xl shadow">
                                 Semua
                             </button>

@@ -1,9 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+
 function NavBar() {
   return (
-    <nav className="bg-white mt-2">
-      <div className="container mx-auto flex items-center justify-between p-4">
+    <nav className="bg-white mt-2 shadow-md w-full">
+      <div className="container mx-auto flex items-center justify-between w-[1053px]">
         <a className="flex items-center" href="/">
           <img
             src="logo.png"
@@ -26,37 +27,80 @@ function NavBar() {
         <div className="hidden w-full lg:flex lg:items-center lg:w-auto" id="navbarNav">
           <ul className="flex flex-col lg:flex-row lg:space-x-4 text-center lg:text-left font-navbar">
             <li className="nav-item m-2">
-              <a className="font-black text-gray-700 hover:text-gray-900" aria-current="page" href="/">
+              <NavLink to="/" className="text-gray-700 hover:text-gray-900" style={({ isActive }) => {
+                return {
+                  fontWeight: isActive ? "bold" : "",
+                }
+              }}>
                 Beranda
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item m-2">
-              <a className="text-gray-500 hover:text-gray-900" href="/fiturall">
+              <NavLink to="/fitur" className="text-gray-700 hover:text-gray-900" style={({ isActive }) => {
+                return {
+                  fontWeight: isActive ? "bold" : "",
+                }
+              }}>
                 Fitur
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item m-2">
-              <a className="text-gray-500 hover:text-gray-900" href="/konsultasi">
+              <NavLink to="/konsultasi" className="text-gray-700 hover:text-gray-900" style={({ isActive }) => {
+                return {
+                  fontWeight: isActive ? "bold" : "",
+                }
+              }}>
                 Konsultasi
-              </a>
+              </NavLink>
             </li>
-            <li className="nav-item m-2">
-              <a className="text-gray-500 hover:text-gray-900" href="#" aria-disabled="true">
+            <li className="nav-item m-2 relative group">
+              <div className="flex items-center cursor-pointer text-gray-700 hover:text-gray-900">
                 Kontak
-              </a>
+                <svg
+                  className="w-4 h-4 ml-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </div>
+              <ul className="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded shadow-lg opacity-0 group-hover:opacity-100 group-hover:block hover:opacity-100 hover:block transition-opacity duration-200">
+                <li className="px-4 py-2 hover:bg-gray-100">
+                  <NavLink to="/kontak/email" className="block text-gray-700 hover:text-gray-900">
+                    Email
+                  </NavLink>
+                </li>
+                <li className="px-4 py-2 hover:bg-gray-100">
+                  <NavLink to="/kontak/phone" className="block text-gray-700 hover:text-gray-900">
+                    Phone
+                  </NavLink>
+                </li>
+                <li className="px-4 py-2 hover:bg-gray-100">
+                  <NavLink to="/kontak/address" className="block text-gray-700 hover:text-gray-900">
+                    Address
+                  </NavLink>
+                </li>
+              </ul>
             </li>
           </ul>
         </div>
         <form className="hidden lg:block">
           <Link to={"/login"}>
-          <button className=" px-4 py-2 btn-pink" type="submit">
-            Masuk
-          </button>
-          
+            <button className="px-4 py-2 btn-pink" type="submit">
+              Masuk
+            </button>
           </Link>
         </form>
       </div>
     </nav>
   );
 }
+
 export default NavBar;

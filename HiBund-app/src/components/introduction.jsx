@@ -6,7 +6,7 @@ const images = [
 ];
 function Introduction() {
   return (
-    <div className="ms-5 mt-5 container flex">
+    <div className="ms-9 mt-5 container flex">
       <IntroductionLeft />
       <div className="gallery">
         <div className="gallery-item large">
