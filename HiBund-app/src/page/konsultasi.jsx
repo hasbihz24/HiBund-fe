@@ -11,6 +11,7 @@ import imgdokter6 from "../../public/doctor6.png";
 import imgdokter7 from "../../public/doctor7.png";
 import imgdokter8 from "../../public/doctor8.png";
 import imgdokter9 from "../../public/doctor9.png";
+import Navigation from '../components/navigation';
 
 function Konsultasi() {
   // Sample data for dokter cards
@@ -91,7 +92,8 @@ function Konsultasi() {
 
       <section className="py-8">
         <h2 className="text-2xl font-bold mb-4">Recommendations. Best matching doctors for you</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <Navigation />
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-14">
           {dokter.map((product, index) => (
             <DokterCard
               key={index}
