@@ -1,5 +1,5 @@
 import Login from "./Pages/login";
-import Register from "./Pages/regis";
+import Register from "./pages/regis";
 import Forget from "./pages/lupa-password";
 import ChangePassword from "./pages/ubah-pw";
 import Verify from "./pages/verifikasi-otp";
@@ -19,7 +19,7 @@ import NotFound from "./pages/notfound";
 function App() {
   return (
     <>
-    <NavBar></NavBar>
+      <NavBar></NavBar>
       
       <Routes>
        <Route path="/" element={<Home />}/>
@@ -37,8 +37,10 @@ function App() {
        <Route path="/profil" element={<Profil/>}></Route>
        <Route path="*" element={<NotFound />} />
        </Routes>
-       
+
        <Footer></Footer>
+       
+  
  
     </>
   );
