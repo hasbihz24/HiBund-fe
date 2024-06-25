@@ -39,38 +39,35 @@ const VerifyLanjut = () => {
           <img className="rounded-2xl max-w-full h-auto md:max-w-1/2" src={imglogin} alt="Login visual" />
         </div>
 
-        {/* Bagian form */}
+        {/* Form Section */}
         <div className="w-full md:w-1/2 px-4 py-8 md:px-12 md:py-16 flex flex-col gap-4 md:gap-8 bg-white">
-          {/* Navigasi Kembali dan Status Langkah */}
+          {/* Back Navigation and Step Status */}
           <div className="flex justify-between items-center">
             <div>
-              {/* Simbol panah kiri untuk kembali */}
               <BackButton nama="Kembali" />
             </div>
-
             <div className="text-right text-xs">
               <div className="text-zinc-800">Step 2 of 3</div>
               <div className="text-pink-500 font-medium">SignUp</div>
             </div>
           </div>
 
-          {/* Judul dan Deskripsi */}
+          {/* Title and Description */}
           <div className="mt-4 md:mt-8">
-            <h2 className="text-black text-2xl lg:text-[32px] font-bold">Periksa Email Anda</h2>
-            <p className="text-stone-400 text-xs leading-normal mt-2">
+            <h2 className="text-black text-2xl lg:text-3xl font-bold">Periksa Email Anda</h2>
+            <p className="text-stone-400 text-sm lg:text-base leading-normal mt-2">
               Kami telah mengirimkan 6 digit kode. Pastikan Anda memasukkan kode yang benar.
             </p>
           </div>
 
-          {/* Form */}
+          {/* OTP Form */}
           <form className="flex flex-col gap-4 mt-2 md:mt-8">
-            {/* OTP Input */}
             <div className="flex justify-center items-center gap-3">
               {otp.map((digit, index) => (
                 <input
                   key={index}
                   type="text"
-                  className="w-10 h-12 md:w-12 md:h-16 text-center text-lg border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500"
+                  className="w-10 h-12 md:w-12 md:h-16 text-center text-lg md:text-3xl border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500"
                   maxLength="1"
                   value={digit}
                   onChange={(e) => handleOtpChange(e.target, index)}
@@ -83,12 +80,12 @@ const VerifyLanjut = () => {
             {/* Submit Button */}
             <button
               type="submit"
-              className="bg-pink-500 text-white text-sm font-bold px-6 py-3 rounded-xl shadow hover:shadow-lg hover:opacity-70 outline-none focus:outline-none w-full ease-linear transition-all duration-150 mt-2 md:mt-4"
+              className="bg-pink-500 text-white text-sm md:text-base font-bold px-6 py-3 rounded-xl shadow-md hover:shadow-lg hover:opacity-80 outline-none focus:outline-none w-full transition duration-300 ease-in-out mt-2 md:mt-4"
             >
               Lanjutkan
             </button>
 
-            {/* Bagian "Tidak menerima kode? Kirim ulang kode" */}
+            {/* Resend OTP Section */}
             <div className="flex flex-col items-center text-center gap-1 mt-4">
               <p className="text-base text-stone-500">Tidak menerima email apapun?</p>
               <p className="text-base text-pink-500 cursor-pointer font-bold" onClick={handleResend}>Coba alamat email lain</p>

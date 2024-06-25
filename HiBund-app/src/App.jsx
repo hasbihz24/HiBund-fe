@@ -1,4 +1,4 @@
-import Login from "./pages/login";
+import Login from "./Pages/login";
 import Register from "./pages/regis";
 import Forget from "./pages/lupa-password";
 import ChangePassword from "./pages/ubah-pw";
@@ -14,11 +14,13 @@ import Artikel from "./page/artikel";
 import Home from "./page/home";
 import Tips from "./page/tips";
 import Komunitas from "./page/grup-komunitas";
+import NotFound from "./pages/notfound";
 import Konsultasi from "./page/konsultasi";
 function App() {
   return (
     <>
       <NavBar></NavBar>
+      
       <Routes>
        <Route path="/" element={<Home />}/>
        <Route path="/fitur" element={<Fitur/>}></Route>
@@ -26,6 +28,7 @@ function App() {
        <Route path="/artikel" element={<Artikel/>}></Route>
        <Route path="/tips" element={<Tips/>}></Route>
        <Route path="/grup" element={<Komunitas/>}></Route>
+
        <Route path="/login" element={<Login/>}></Route>
        <Route path="/regis" element={<Register/>}></Route>
        <Route path="/forget" element={<Forget/>}></Route>
@@ -33,9 +36,13 @@ function App() {
        <Route path="/ubah" element={<ChangePassword/>}></Route>
        <Route path="/otpLanjut" element={<VerifyLanjut/>}></Route>
        <Route path="/profil" element={<Profil/>}></Route>
-       <Route path="/edit-profil" element={<EditProfile/>}></Route>
-      </Routes>
-    <Footer></Footer>
+       <Route path="*" element={<NotFound />} />
+       </Routes>
+
+       <Footer></Footer>
+       
+  
+ 
     </>
   );
 }

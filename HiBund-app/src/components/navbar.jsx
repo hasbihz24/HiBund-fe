@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 function NavBar() {
   return (
     <nav className="bg-white mt-2">
@@ -31,7 +31,7 @@ function NavBar() {
               </a>
             </li>
             <li className="nav-item m-2">
-              <a className="text-gray-500 hover:text-gray-900" href="/fitur">
+              <a className="text-gray-500 hover:text-gray-900" href="/fiturall">
                 Fitur
               </a>
             </li>
