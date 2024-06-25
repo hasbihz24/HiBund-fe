@@ -25,7 +25,7 @@ function App() {
   const location = useLocation();
 
   // Paths where the NavBar should be hidden
-  const noNavBarPaths = ["/login", "/regis"];
+  const noNavBarPaths = ["/login", "/regis", "/forget", "/otp", "/ubah", "/otpLanjut"];
 
   return (
     <>

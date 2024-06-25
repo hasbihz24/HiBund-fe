@@ -6,7 +6,8 @@ import { useNavigate } from 'react-router-dom';
 const Login = () => {
   const [values, setValues] = useState({
     email: '',
-    password: ''
+    password: '',
+    rememberMe: false
   });
   const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
@@ -23,7 +24,11 @@ const Login = () => {
   };
 
   const handleInput = (e) => {
-    setValues(prev => ({ ...prev, [e.target.name]: e.target.value }));
+    const { name, value, type, checked } = e.target;
+    setValues(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value
+    }));
   };
 
   const handleSubmit = (e) => {
@@ -67,7 +72,8 @@ const Login = () => {
       });
       setValues({
         email: '',
-        password: ''
+        password: '',
+        rememberMe: false
       });
       setErrors({});
     }
@@ -147,6 +153,22 @@ const Login = () => {
                   )}
                 </div>
               </div>
+            </div>
+
+            {/* Remember Me and Forgot Password Links */}
+            <div className="flex justify-between items-center">
+              <div className="flex items-center">
+                <input
+                  type="checkbox"
+                  id="rememberMe"
+                  name="rememberMe"
+                  className="mr-2"
+                  checked={values.rememberMe}
+                  onChange={handleInput}
+                />
+                <label htmlFor="rememberMe" className="text-sm text-gray-600">Ingat Saya</label>
+              </div>
+              <Link to="/forget" className="text-sm text-pink-500 font-bold cursor-pointer">Lupa Kata Sandi?</Link>
             </div>
 
             <button

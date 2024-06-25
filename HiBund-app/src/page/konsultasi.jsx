@@ -1,143 +1,106 @@
-import Tweet from "../components/komunitas-card";
+// src/App.js
+import React from 'react';
+import DokterCard from '../components/dokter-card';
+import imgchild13 from "../../public/jumbo-child.png";
+import imgdokter from "../../public/doctor1.png";
+
 function Konsultasi() {
-    return (
-        <>
-            <div className="h-12" >
+  // Sample data for dokter cards
+  const dokter = [
+    {
+      imgSrc: imgdokter,
+      doctorName: 'Dr. John Doe',
+      specialist: 'Pediatrician',
+      location: 'New York, USA',
+      rating: '4.9 (98)',
+    },
+    {
+      imgSrc: imgdokter,
+      doctorName: 'Dr. Jane Smith',
+      specialist: 'Dermatologist',
+      location: 'Los Angeles, USA',
+      rating: '4.8 (85)',
+    },
+    {
+        imgSrc: imgdokter,
+        doctorName: 'Dr. Jane Smith',
+        specialist: 'Dermatologist',
+        location: 'Los Angeles, USA',
+        rating: '4.8 (85)',
+      },
+      {
+        imgSrc: imgdokter,
+        doctorName: 'Dr. Jane Smith',
+        specialist: 'Dermatologist',
+        location: 'Los Angeles, USA',
+        rating: '4.8 (85)',
+      },
+      {
+        imgSrc: imgdokter,
+        doctorName: 'Dr. Jane Smith',
+        specialist: 'Dermatologist',
+        location: 'Los Angeles, USA',
+        rating: '4.8 (85)',
+      },
+      {
+        imgSrc: imgdokter,
+        doctorName: 'Dr. Jane Smith',
+        specialist: 'Dermatologist',
+        location: 'Los Angeles, USA',
+        rating: '4.8 (85)',
+      },
+      {
+        imgSrc: imgdokter,
+        doctorName: 'Dr. Jane Smith',
+        specialist: 'Dermatologist',
+        location: 'Los Angeles, USA',
+        rating: '4.8 (85)',
+      },
+      {
+        imgSrc: imgdokter,
+        doctorName: 'Dr. Jane Smith',
+        specialist: 'Dermatologist',
+        location: 'Los Angeles, USA',
+        rating: '4.8 (85)',
+      },
+      {
+        imgSrc: imgdokter,
+        doctorName: 'Dr. Jane Smith',
+        specialist: 'Dermatologist',
+        location: 'Los Angeles, USA',
+        rating: '4.8 (85)',
+      },
+   
+  ];
 
-            </div>
-            <div className="grid grid-cols-3 gap-4 mt-6">
-                <Tweet
-                    name="Temz👑"
-                    username="TheRealTemz"
-                    tweetText="I wan go baff but I can't. Because chowdeck riders move like thieves in the night. Before you cough, rider don reach your gate. The efficiency and speed is crazy"
-                />
+  return (
+    <div className='bg-white'>
+    <main className="container mx-auto py-12">
+      <section className="flex flex-col items-center">
+          <img src={imgchild13} alt="Product" className="w-full h-full object-cover" />
+      </section>
 
-                <Tweet
-                    name="Teffy Billion Dollars"
-                    username="Jegc_tola"
-                    tweetText="My Yam and pepper sauce just came in from King Glab and Chowdeck and my Godddd! This is the best thing to happen to me this week! https://t.co/DBm6E2u2hQ"
-                />
 
-                <Tweet
-                    name="Temz👑"
-                    username="TheRealTemz"
-                    tweetText="I wan go baff but I can't. Because chowdeck riders move like thieves in the night. Before you cough, rider don reach your gate. The efficiency and speed is crazy"
-                />
-
-                <Tweet
-                    name="Temz👑"
-                    username="TheRealTemz"
-                    tweetText="I wan go baff but I can't. Because chowdeck riders move like thieves in the night. Before you cough, rider don reach your gate. The efficiency and speed is crazy"
-
-                />
-
-                <Tweet
-                    name="Temz👑"
-                    username="TheRealTemz"
-                    tweetText="I wan go baff but I can't. Because chowdeck riders move like thieves in the night. Before you cough, rider don reach your gate. The efficiency and speed is crazy"
-
-                />
-
-                <Tweet
-                    name="Temz👑"
-                    username="TheRealTemz"
-                    tweetText="I wan go baff but I can't. Because chowdeck riders move like thieves in the night. Before you cough, rider don reach your gate. The efficiency and speed is crazy"
-
-                />
-                <Tweet
-                    name="Temz👑"
-                    username="TheRealTemz"
-                    tweetText="I wan go baff but I can't. Because chowdeck riders move like thieves in the night. Before you cough, rider don reach your gate. The efficiency and speed is crazy"
-                />
-                <Tweet
-                    name="Temz👑"
-                    username="TheRealTemz"
-                    tweetText="I wan go baff but I can't. Because chowdeck riders move like thieves in the night. Before you cough, rider don reach your gate. The efficiency and speed is crazy"
-
-                />
-                <Tweet
-                    name="Temz👑"
-                    username="TheRealTemz"
-                    tweetText="I wan go baff but I can't. Because chowdeck riders move like thieves in the night. Before you cough, rider don reach your gate. The efficiency and speed is crazy"
-
-                />
-                <Tweet
-                    name="Temz👑"
-                    username="TheRealTemz"
-                    tweetText="I wan go baff but I can't. Because chowdeck riders move like thieves in the night. Before you cough, rider don reach your gate. The efficiency and speed is crazy"
-
-                />
-                <Tweet
-                    name="Temz👑"
-                    username="TheRealTemz"
-                    tweetText="I wan go baff but I can't. Because chowdeck riders move like thieves in the night. Before you cough, rider don reach your gate. The efficiency and speed is crazy"
-
-                />
-                <Tweet
-                    name="Temz👑"
-                    username="TheRealTemz"
-                    tweetText="I wan go baff but I can't. Because chowdeck riders move like thieves in the night. Before you cough, rider don reach your gate. The efficiency and speed is crazy"
-
-                />
-                <Tweet
-                    name="Temz👑"
-                    username="TheRealTemz"
-                    tweetText="I wan go baff but I can't. Because chowdeck riders move like thieves in the night. Before you cough, rider don reach your gate. The efficiency and speed is crazy"
-
-                />
-                <Tweet
-                    name="Temz👑"
-                    username="TheRealTemz"
-                    tweetText="I wan go baff but I can't. Because chowdeck riders move like thieves in the night. Before you cough, rider don reach your gate. The efficiency and speed is crazy"
-
-                />
-                <Tweet
-                    name="Temz👑"
-                    username="TheRealTemz"
-                    tweetText="I wan go baff but I can't. Because chowdeck riders move like thieves in the night. Before you cough, rider don reach your gate. The efficiency and speed is crazy"
-
-                />
-                <Tweet
-                    name="Temz👑"
-                    username="TheRealTemz"
-                    tweetText="I wan go baff but I can't. Because chowdeck riders move like thieves in the night. Before you cough, rider don reach your gate. The efficiency and speed is crazy"
-
-                />
-                <Tweet
-                    name="Temz👑"
-                    username="TheRealTemz"
-                    tweetText="I wan go baff but I can't. Because chowdeck riders move like thieves in the night. Before you cough, rider don reach your gate. The efficiency and speed is crazy"
-
-                />
-                <Tweet
-                    name="Temz👑"
-                    username="TheRealTemz"
-                    tweetText="I wan go baff but I can't. Because chowdeck riders move like thieves in the night. Before you cough, rider don reach your gate. The efficiency and speed is crazy"
-                />
-                <Tweet
-                    name="Temz👑"
-                    username="TheRealTemz"
-                    tweetText="I wan go baff but I can't. Because chowdeck riders move like thieves in the night. Before you cough, rider don reach your gate. The efficiency and speed is crazy"
-
-                />
-                <Tweet
-                    name="Temz👑"
-                    username="TheRealTemz"
-                    tweetText="I wan go baff but I can't. Because chowdeck riders move like thieves in the night. Before you cough, rider don reach your gate. The efficiency and speed is crazy"
-
-                />
-                <Tweet
-                    name="Temz👑"
-                    username="TheRealTemz"
-                    tweetText="I wan go baff but I can't. Because chowdeck riders move like thieves in the night. Before you cough, rider don reach your gate. The efficiency and speed is crazy"
-
-                />
-            </div>
-            <div className="h-96" >
-
-            </div>
-        </>
-    )
+      <section className="py-8">
+        <h2 className="text-2xl font-bold mb-4">Recommendations. Best matching doctors for you</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          {dokter.map((product, index) => (
+            <DokterCard
+              key={index}
+              imgSrc={product.imgSrc}
+              doctorName={product.doctorName}
+              specialist={product.specialist}
+              location={product.location}
+              rating={product.rating}
+            />
+          ))}
+        </div>
+      </section>
+      </main>
+     
+    </div>
+   
+  );
 }
 
-export default Konsultasi
+export default Konsultasi;
