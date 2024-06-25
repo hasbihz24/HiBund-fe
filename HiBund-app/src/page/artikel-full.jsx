@@ -5,6 +5,7 @@ import imgchild1 from "../../public/child.jpg";
 import imgchild2 from "../../public/child2.png";
 import imgchild3 from "../../public/child3.png";
 import { Link } from "react-router-dom";
+import Breadcrumb from "../components/breadcrumb";
 
 import imgchild13 from "../../public/jumbo-child.png";
 const author = {
@@ -45,16 +46,14 @@ const image = [UNICEF];
 function ArtikelFull() {
     return (
         <>
-        <img src={imgchild13} alt='banner' className='w-full h-full object-cover' />            
-            <div className="mx-14">
-                <p className="flex">
-                    BLOG
-                    &gt; <Link to={'/tips'}><a href=""> Tips dan Trik </a> </Link>
-                    &gt; 10 Tips Efektif untuk Mengatasi Tantrum pada Anak
-                    Balita
-                </p>
+            <img src={imgchild13} alt='banner' className='w-full h-full object-cover' />
+            <div className="mx-14 mt-3 flex items-center space-x-2">
+                <Breadcrumb />
+                <span className="text-gray-700">
+                    10 Tips Efektif untuk Mengatasi Tantrum pada Anak Balita
+                </span>
             </div>
-            <div className="mb-14">
+            <div className="mb-8">
                 <TheArticle
                     title="10 Tips Efektif untuk Mengatasi Tantrum pada Anak Balita"
                     author={author}

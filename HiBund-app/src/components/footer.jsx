@@ -1,7 +1,7 @@
 function Footer() {
   return (
-    <div className="footer-container mx-5 mt-5">
-      <div className="container mx-auto">
+    <div className="footer-container mt-5 footer-bg w-full py-7">
+      <div className="container mx-auto w-[1053px]">
         <div className="grid grid-cols-4 md:grid-cols-6 gap-4">
           {/* Column 1 */}
           <div className="col-span-1 md:col-span-1">
@@ -59,10 +59,6 @@ function Footer() {
             <p className="my-2 text-xs font-bold text-gray-500">
               © 2024 • Romusa Proyek Pemograman Universitas Amikom Yogyakarta
             </p>
-          </div>
-          <div className="flex col-span-1 md:col-span-1 mb-8">
-            <button className="btn-white py-1 px-4 text-sm mx-3">Login</button>
-            <button className="btn-pink py-1 px-4 text-sm">Coba Sekarang Gratis</button>
           </div>
         </div>
       </div>
