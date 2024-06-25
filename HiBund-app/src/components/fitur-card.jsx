@@ -1,7 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function FiturCard({ cards }) {
     return (
+        <Link to='/artikel-full'>
         <div className="relative mt-14 px-4 sm:px-0"> {/* Container with padding for better layout */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 -ml-[50px] sm:ml-0"> {/* Shift cards to the left on larger screens */}
                 {cards.map((card, index) => (
@@ -28,6 +30,7 @@ function FiturCard({ cards }) {
                 ))}
             </div>
         </div>
+        </Link>
     );
 }
 export default FiturCard;
