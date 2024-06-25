@@ -1,7 +1,7 @@
 import React from 'react';
 function Content() {
   return (
-    <div className="mx-5 my-12">
+    <div className="mx-5 my-16">
       <div className="container mx-auto">
         <div className="grid grid-cols-3 grid-rows-2 items-center gap-3">
           {/* Left Column */}
