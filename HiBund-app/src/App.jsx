@@ -7,7 +7,6 @@ import ChangePassword from "./pages/ubah-pw";
 import Verify from "./pages/verifikasi-otp";
 import VerifyLanjut from "./pages/verify2";
 import Profil from "./Pages/profil";
-import EditProfile from "./Pages/edit-profil";
 import NavBar from "./components/navbar";
 import Footer from "./components/footer";
 import Fitur from "./page/fitur";
@@ -43,7 +42,6 @@ function App() {
         <Route path="/ubah" element={<ChangePassword />} />
         <Route path="/otpLanjut" element={<VerifyLanjut />} />
         <Route path="/profil" element={<Profil />} />
-        <Route path="/edit-profil" element={<EditProfile />} />
       </Routes>
 
       {!noNavBarPaths.includes(location.pathname) && <Footer />}

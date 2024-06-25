@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom"; 
 import imgchild19 from "../../public/child19.png";
 import imgchild18 from "../../public/child18.png";
@@ -14,8 +14,14 @@ import imgchild11 from "../../public/child11.png";
 import imgchild12 from "../../public/child12.png";
 import imgchild13 from "../../public/jumbo-child.png";
 import FiturCard from "../components/fitur-card";
+import Loading from "../components/loading"; 
+import Search from "../components/search";
 
 function Artikel() {
+
+    const [searchQuery, setSearchQuery] = useState("");
+    const [filteredCards, setFilteredCards] = useState([]);
+    const [loading, setLoading] = useState(false);
   
 
     const cards = [
@@ -104,13 +110,27 @@ function Artikel() {
             next: "Baca Selengkapnya →"
         },
     ];
+
+    useEffect(() => {
+        setLoading(true);
+
+        setTimeout(() => {
+            const results = cards.filter(card =>
+                card.judul.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                card.nama.toLowerCase().includes(searchQuery.toLowerCase())
+            );
+            setFilteredCards(results);
+            setLoading(false);
+        }, 500); 
+    }, [searchQuery]);
+
     return (
         <div className="bg-white">
             <main className="container mx-auto py-12">
                 <section className="flex flex-col items-center">
                     <img src={imgchild13} alt='banner' className='w-full h-full object-cover' />
                     <div className="flex space-x-4 mt-5">
-                        <Link to="/">
+                        <Link to="/fiturall">
                             <button className="bg-gray-400 hover:bg-gray-500 text-white text-sm font-medium px-6 py-3 rounded-xl shadow">
                                 Semua
                             </button>
@@ -134,8 +154,20 @@ function Artikel() {
                 </section>
 
                 <section className="px-4 mt-10 md:px-0">
-                    <FiturCard cards={cards} />
+                    {/* Search Input */}
+                    <Search
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                    />
+
+                    {/* Loading or Cards */}
+                    {loading ? (
+                        <Loading />
+                    ) : (
+                        <FiturCard cards={filteredCards.length > 0 ? filteredCards : cards} />
+                    )}
                 </section>
+
 
             </main>
         </div>
