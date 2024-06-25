@@ -1,7 +1,11 @@
+
+import Login from "./Pages/login";
+import Register from "./Pages/regis";
+
 import React from "react";
 import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
-import Login from "./pages/login";
-import Register from "./pages/regis";
+
+
 import Forget from "./pages/lupa-password";
 import ChangePassword from "./pages/ubah-pw";
 import Verify from "./pages/verifikasi-otp";
@@ -21,7 +25,7 @@ function App() {
   const location = useLocation();
 
   // Paths where the NavBar should be hidden
-  const noNavBarPaths = ["/login", "/regis"];
+  const noNavBarPaths = ["/login", "/regis", "/forget", "/otp", "/ubah", "/otpLanjut"];
 
   return (
     <>
