@@ -131,11 +131,12 @@ button.btn-link:hover {
     background-color: #ff4081;
     border-color: #ff4081;
 }
-.linebreak{
+
+.linebreak {
     height: 100px;
 }
 
-.testimonial .arrow-btn {
+.arrow-btn {
     width: auto;
     background-color: white;
     border: 1px solid #ff4081;
@@ -144,7 +145,7 @@ button.btn-link:hover {
     height: 50px;
 }
 
-.testimonial .arrow-btn {
+.arrow-btn {
     width: auto;
     background-color: white;
     border-color: #ff4081;
@@ -153,10 +154,10 @@ button.btn-link:hover {
     height: 50px;
     display: flex;
     align-items: center;
-    justify-content: center; 
+    justify-content: center;
 }
 
-.testimonial .arrow-btn:hover {
+.arrow-btn:hover {
     width: auto;
     background-color: white;
     border-color: #fc9bbb;
@@ -165,11 +166,34 @@ button.btn-link:hover {
     height: 50px;
     display: flex;
     align-items: center;
-    justify-content: center; 
+    justify-content: center;
 }
 
-.linebreak2{
+.linebreak2 {
     height: 200px;
 }
 
+/* src/Testimonial.css */
 
+.slide-enter {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  
+  .slide-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 500ms, transform 500ms;
+  }
+  
+  .slide-exit {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .slide-exit-active {
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: opacity 500ms, transform 500ms;
+  }
+  
