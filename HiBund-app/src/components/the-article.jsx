@@ -6,7 +6,7 @@ const TheArticle = ({ title, author, date, content, image }) => {
   return (
     <div className="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
       <div className="mb-8">
-        <h1 className="text-4xl font-extrabold tracking-tight text-gray-900">{title}</h1>
+        <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 mb-5">{title}</h1>
         <div className="mt-2 flex items-center">
           <div className="mr-2">
             <img className="h-10 w-10 rounded-full" src={author.image} alt={author.name} />

@@ -44,8 +44,8 @@ function App() {
         <Route path="/profil" element={<Profil />} />
       </Routes>
 
+      </main>
       {!noNavBarPaths.includes(location.pathname) && <Footer />}
-    </main>
     </>
   );
 }
