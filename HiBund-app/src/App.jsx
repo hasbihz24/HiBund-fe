@@ -5,17 +5,17 @@ import ChangePassword from "./pages/ubah-pw";
 import Verify from "./pages/verifikasi-otp";
 import VerifyLanjut from "./pages/verify2";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Profil from "./Pages/profil";
+import EditProfile from "./Pages/edit-profil";
 import NavBar from "./components/navbar";
 import Footer from "./components/footer";
-import Profil from "./pages/profil";
 import Fitur from "./page/fitur";
 import Artikel from "./page/artikel";
 import Home from "./page/home";
 import Tips from "./page/tips";
 import Komunitas from "./page/grup-komunitas";
 import NotFound from "./pages/notfound";
-
-
+import Konsultasi from "./page/konsultasi";
 function App() {
   return (
     <>
@@ -23,7 +23,8 @@ function App() {
       
       <Routes>
        <Route path="/" element={<Home />}/>
-       <Route path="/fiturall" element={<Fitur/>}></Route>
+       <Route path="/fitur" element={<Fitur/>}></Route>
+       <Route path="/konsultasi" element={<Konsultasi/>}></Route>
        <Route path="/artikel" element={<Artikel/>}></Route>
        <Route path="/tips" element={<Tips/>}></Route>
        <Route path="/grup" element={<Komunitas/>}></Route>
