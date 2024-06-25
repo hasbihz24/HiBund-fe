@@ -20,6 +20,9 @@ export default {
         'xl': '13px'
       }
     },
+    fontFamily: {
+      'inter': ['Inter','sans-serif'],
+    },
   },
   plugins: [],
 }
