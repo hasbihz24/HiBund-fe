@@ -1,13 +1,13 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-
+import logo from '../../public/logo.png';
 function NavBar() {
   return (
     <nav className="bg-white shadow-md w-full py-4 ">
       <div className="container mx-auto flex items-center justify-between w-[1053px]">
         <a className="flex items-center" href="/">
           <img
-            src="logo.png"
+            src={logo}
             alt="Logo"
             width="110"
             height="32"

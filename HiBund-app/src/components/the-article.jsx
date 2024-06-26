@@ -9,10 +9,10 @@ const TheArticle = ({ title, author, date, content, image }) => {
         <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 mb-5">{title}</h1>
         <div className="mt-2 flex items-center">
           <div className="mr-2">
-            <img className="h-10 w-10 rounded-full" src={author.image} alt={author.name} />
+            <img className="h-10 w-10 rounded-full" src="" alt={author} />
           </div>
           <div>
-            <p className="text-sm font-medium text-gray-900">{author.name}</p>
+            <p className="text-sm font-medium text-gray-900">{author}</p>
             <p className="text-sm text-gray-500">{date}</p>
           </div>
         </div>
@@ -23,9 +23,7 @@ const TheArticle = ({ title, author, date, content, image }) => {
         </div>
       )}
       <div className="prose prose-lg max-w-none">
-        {content.map((paragraph, index) => (
-          <p key={index}>{paragraph}</p>
-        ))}
+          <p>{content}</p>
       </div>
     </div>
   );

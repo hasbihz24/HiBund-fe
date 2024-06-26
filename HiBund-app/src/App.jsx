@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route, Routes, useLocation } from "react-route
 
 
 import Forget from "./pages/lupa-password";
-import ChangePassword from "./pages/ubah-pw";
+import ChangePassword from "./Pages/ubah-pw";
 import Verify from "./pages/verifikasi-otp";
 import VerifyLanjut from "./pages/verify2";
 import Profil from "./Pages/profil";
@@ -36,7 +36,7 @@ function App() {
         <Route path="/fitur" element={<Fitur />} />
         <Route path="/konsultasi" element={<Konsultasi />} />
         <Route path="/artikel" element={<Artikel />} />
-        <Route path="/artikel-full" element={<ArtikelFull />} />
+        <Route path="/artikel-full/:title" element={<ArtikelFull />} />
         <Route path="/tips" element={<Tips />} />
         <Route path="/grup" element={<Komunitas />} />
         <Route path="/login" element={<Login />} />

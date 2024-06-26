@@ -1,18 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function FiturCard({ cards }) {
+
+// Importing images
+import imgchild13 from "../../public/jumbo-child.png";
+
+const FiturCard = ({ cards }) => {
     return (
-        <Link to='/artikel-full'>
         <div className="relative mt-14 px-4 sm:px-0"> {/* Container with padding for better layout */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 -ml-[50px] sm:ml-0"> {/* Shift cards to the left on larger screens */}
                 {cards.map((card, index) => (
+                    <Link to={`/artikel-full/${encodeURIComponent(card.judul)}`}>
                     <div key={index} className="col-span-1 transform transition-transform duration-300 hover:scale-105">
                         <div className="w-full h-full flex flex-col bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden 
                                         transition-all duration-300 hover:shadow-2xl hover:border-pink-custom">
                             <img
                                 className="w-full h-52 object-cover md:h-40 lg:h-52" /* Adjust height for smaller screens */
-                                src={card.img}
+                                src={card.img || imgchild13}
                                 alt="Article Image"
                             />
                             <div className="p-4 flex flex-col justify-between flex-grow">
@@ -27,10 +31,10 @@ function FiturCard({ cards }) {
                             </div>
                         </div>
                     </div>
+                    </Link>
                 ))}
             </div>
         </div>
-        </Link>
     );
 }
 export default FiturCard;

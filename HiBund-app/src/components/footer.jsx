@@ -1,3 +1,6 @@
+import logo from '../../public/logo-2.png';
+import logo2 from '../../public/logo.png';
+
 function Footer() {
   return (
     <div className="footer-container mt-5 footer-bg w-full py-7">
@@ -6,7 +9,7 @@ function Footer() {
           {/* Column 1 */}
           <div className="col-span-1 md:col-span-1">
             <div className="flex flex-col md:flex-row">
-              <img src="logo-2.png" className="w-4/5 md:w-80 h-auto" alt="Logo" />
+              <img src={logo} className="w-4/5 md:w-80 h-auto" alt="Logo" />
             </div>
             <div className="my-3">
               <p className="text-sm">
@@ -55,7 +58,7 @@ function Footer() {
         {/* Footer Bottom */}
         <div className="grid grid-cols-3 md:grid-cols-4 mt-5 border-t border-gray-300 pt-5">
           <div className="col-span-1 md:col-span-3 items-center">
-            <img src="logo-2.png" className="w-1/5 md:w-20 h-auto" alt="Logo" />
+            <img src={logo} className="w-1/5 md:w-20 h-auto" alt="Logo" />
             <p className="my-2 text-xs font-bold text-gray-500">
               © 2024 • Romusa Proyek Pemograman Universitas Amikom Yogyakarta
             </p>
