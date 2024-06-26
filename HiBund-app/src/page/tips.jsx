@@ -1,127 +1,82 @@
 import React, { useState, useEffect } from "react";
-import imgchild1 from "../../public/child.jpg";
-import imgchild2 from "../../public/child2.png";
-import imgchild3 from "../../public/child3.png";
-import imgchild4 from "../../public/child4.png";
-import imgchild5 from "../../public/child5.png";
-import imgchild6 from "../../public/child6.png";
-import imgchild7 from "../../public/child7.png";
-import imgchild8 from "../../public/child8.png";
-import imgchild9 from "../../public/child9.png";
-import imgchild10 from "../../public/child10.png";
-import imgchild11 from "../../public/child11.png";
-import imgchild12 from "../../public/child12.png";
+import { Link } from "react-router-dom";
 import FiturCard from "../components/fitur-card";
-import imgchild13 from "../../public/jumbo-child.png";
-import { Link } from 'react-router-dom';
-import Loading from "../components/loading"; 
+import Loading from "../components/loading";
 import Search from "../components/search";
+import axios from 'axios';
+
+// Importing images
+import imgchild13 from "../../public/jumbo-child.png";
 
 function Tips() {
     const [searchQuery, setSearchQuery] = useState("");
     const [filteredCards, setFilteredCards] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [articles, setArticles] = useState([]);
+    const [noResults, setNoResults] = useState(false);
 
-    const cards = [
-        {
-            nama: "Tips & Trik",
-            judul: "Rahasia Menjaga Keseimbangan Antar Pekerjaan",
-            text: "Tips bagi orang tua yang bekerja untuk tetap produktif sambil mengasuh anak.",
-            img: imgchild5,
-            next: "Baca Selengkapnya →"
-        },
-        {
-            nama: "Tips & Trik",
-            judul: "Menumbuhkan Rasa Percaya Diri pada Anak Sejak Dini",
-            text: "Strategi dan kegiatan yang dapat membantu anak mengembangkan rasa percaya diri yang kuat.",
-            img: imgchild11,
-            next: "Baca Selengkapnya →"
-        },
-        {
-            nama: "Tips & Trik",
-            judul: "Mengajarkan Anak Nilai-Nilai Empati dan Kebaikan",
-            text: "Cara efektif untuk menanamkan empati dan kebaikan pada anak melalui contoh dan kegiatan sehari-hari.",
-            img: imgchild12,
-            next: "Baca Selengkapnya →"
-        },
-        {
-            nama: "Tips & Trik",
-            judul: "Mengajarkan Anak Tentang Uang: 5 Pelajaran Dasar",
-            text: "Panduan mengajarkan konsep keuangan kepada anak-anak sejak dini.",
-            img: imgchild8,
-            next: "Baca Selengkapnya →"
-        },
-        {
-            nama: "Tips & Trik",
-            judul: "Cara Menghadapi Bullying: Dukungan untuk Anak dan Orang Tua",
-            text: "Tips untuk membantu anak yang mengalami bullying dan cara mencegahnya.",
-            img: imgchild9,
-            next: "Baca Selengkapnya →"
-        },
-        {
-            nama: "Tips & Trik",
-            judul: "Membangun Komunikasi Efektif dengan Remaja Anda",
-            text: "Cara berkomunikasi dengan anak remaja agar mereka merasa didengar dan dipahami.",
-            img: imgchild6,
-            next: "Baca Selengkapnya →"
-        },
-        {
-            nama: "Tips & Trik",
-            judul: "Pentingnya Rutinitas Tidur yang Baik untuk Anak-Anak",
-            text: "Tips untuk menciptakan rutinitas tidur yang sehat dan konsisten bagi anak.",
-            img: imgchild7,
-            next: "Baca Selengkapnya →"
-        },
-        {
-            nama: "Tips & Trik",
-            judul: "Cara Membangun Kebiasaan Belajar yang Positif pada Anak",
-            text: "Trik untuk mendorong kebiasaan belajar yang baik sejak dini.",
-            img: imgchild4,
-            next: "Baca Selengkapnya →"
-        },
-        {
-            nama: "Tips & Trik",
-            judul: "Aktivitas Seru dan Edukatif untuk Meningkatkan Kreativitas Anak",
-            text: "Ide aktivitas yang menyenangkan dan mendidik untuk anak-anak di rumah.",
-            img: imgchild10,
-            next: "Baca Selengkapnya →"
-        },
-        {
-            nama: "Tips & Trik",
-            judul: "10 Tips Efektif untuk Mengatasi Tantrum pada Anak Balita",
-            text: "Strategi praktis untuk menenangkan anak saat mereka mengalami tantrum.",
-            img: imgchild1,
-            next: "Baca Selengkapnya →"
-        },
-        {
-            nama: "Tips & Trik",
-            judul: "Panduan Lengkap untuk Menjaga Kesehatan Mental Anak di Era Digital",
-            text: "Tips untuk membantu anak tetap sehat secara mental dalam menghadapi dunia digital.",
-            img: imgchild2,
-            next: "Baca Selengkapnya →"
-        },
-        {
-            nama: "Tips & Trik",
-            judul: "Mengatasi Perilaku Anak yang Sulit: Panduan untuk Orang Tua",
-            text: "Strategi untuk memahami dan mengatasi perilaku yang menantang pada anak.",
-            img: imgchild3,
-            next: "Baca Selengkapnya →"
-        },
-    ];
-
-    
     useEffect(() => {
         setLoading(true);
+        axios.get('http://localhost:8080/auth/article')
+            .then(response => {
+                // Filter articles to only include those with "tips" or "trik" in the title
+                const filteredArticles = response.data.filter(article => (
+                    article.title.toLowerCase().includes("tips") || article.title.toLowerCase().includes("trik")
+                ));
+                setArticles(filteredArticles);
+                setFilteredCards(filteredArticles);
+                setLoading(false);
+            })
+            .catch(error => {
+                console.error('Error fetching articles:', error);
+                setLoading(false);
+            });
+    }, []);
 
-        setTimeout(() => {
-            const results = cards.filter(card =>
-                card.judul.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                card.nama.toLowerCase().includes(searchQuery.toLowerCase())
-            );
-            setFilteredCards(results);
-            setLoading(false);
-        }, 500); 
-    }, [searchQuery]);
+    useEffect(() => {
+        if (searchQuery === "") {
+            setFilteredCards(articles);
+            setNoResults(false);
+            return;
+        }
+
+        setLoading(true);
+        axios.get(`http://localhost:8080/auth/article/search?title=${encodeURIComponent(searchQuery)}`)
+            .then(response => {
+                const filteredResults = response.data.filter(article => (
+                    article.title.toLowerCase().includes("tips") || article.title.toLowerCase().includes("trik")
+                ));
+                if (filteredResults.length === 0) {
+                    setNoResults(true);
+                    setFilteredCards([]);
+                } else {
+                    setNoResults(false);
+                    setFilteredCards(filteredResults);
+                }
+                setLoading(false);
+            })
+            .catch(error => {
+                console.error('Error fetching search results:', error);
+                if (error.response && error.response.status === 404) {
+                    setNoResults(true);
+                    setFilteredCards([]);
+                }
+                setLoading(false);
+            });
+    }, [searchQuery, articles]);
+
+    // Mapping articles to cards format
+    const mapArticlesToCards = () => {
+        return filteredCards.map(article => ({
+            nama: article.authorName, // Assuming authorName is correct
+            judul: article.title, // Assuming title is correct
+            text: article.content.substring(0, 100) + "...", // Assuming content is correct
+            img: article.imageUrl || imgchild13, // Assuming imageUrl is correct or using default image
+            next: "Baca Selengkapnya →"
+        }));
+    };
+
+    const cards = searchQuery ? mapArticlesToCards() : mapArticlesToCards();
 
     return (
         <div className="bg-white">
@@ -129,7 +84,7 @@ function Tips() {
                 <section className="flex flex-col items-center">
                     <img src={imgchild13} alt='banner' className='w-full h-full object-cover' />
                     <div className="flex space-x-4 mt-5">
-                        <Link to="/fiturall">
+                        <Link to="/fitur">
                             <button className="bg-gray-400 hover:bg-gray-500 text-white text-sm font-medium px-6 py-3 rounded-xl shadow">
                                 Semua
                             </button>
@@ -142,11 +97,6 @@ function Tips() {
                         <Link to="/tips">
                             <button className="bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium px-6 py-3 rounded-xl shadow">
                                 Tips & Trik
-                            </button>
-                        </Link>
-                        <Link to="/grup">
-                            <button className="bg-gray-400 hover:bg-gray-500 text-white text-sm font-medium px-6 py-3 rounded-xl shadow">
-                                Grup & Komunitas
                             </button>
                         </Link>
                     </div>
@@ -163,7 +113,11 @@ function Tips() {
                     {loading ? (
                         <Loading />
                     ) : (
-                        <FiturCard cards={filteredCards.length > 0 ? filteredCards : cards} />
+                        noResults ? (
+                            <p>Pencarian tidak ditemukan</p>
+                        ) : (
+                            <FiturCard cards={cards} />
+                        )
                     )}
                 </section>
 

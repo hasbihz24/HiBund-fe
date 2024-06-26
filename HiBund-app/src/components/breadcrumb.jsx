@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 const Breadcrumb = () => {
+    const { title } = useParams();
+    const decodedTitle = decodeURIComponent(title);
     const location = useLocation();
     const pathnames = location.pathname.split('/').filter((x) => x);
 
@@ -9,7 +12,7 @@ const Breadcrumb = () => {
         <nav className="flex text-gray-700" aria-label="Breadcrumb">
             <ol className="list-none p-0 inline-flex items-center space-x-2">
                 <li className="flex items-center">
-                    <Link to="/" className="text-gray-500 hover:underline">
+                    <Link to="/fitur" className="text-gray-500 hover:underline">
                         BLOG
                     </Link>
                     <span className="mx-2">{'>'}</span>
@@ -28,8 +31,7 @@ const Breadcrumb = () => {
                                 </>
                             ) : (
                                 <>
-                                    <span className="text-gray-500">{value}</span>
-                                    <span className="mx-2">{'>'}</span>
+                                    <span className="text-gray-500">{decodedTitle}</span>
                                 </>
                             )}
                         </li>
