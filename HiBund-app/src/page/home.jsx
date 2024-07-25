@@ -1,4 +1,3 @@
-import NavBar from "../components/navbar";
 import Jumbotron from "../components/jumbotron";
 import Company from "../components/company";
 import Introduction from "../components/introduction";
@@ -6,7 +5,6 @@ import Article from "../components/artikel";
 import Consultation from "../components/consultation";
 import Join from "../components/Join";
 import Testimonial from "../components/testimonial";
-import Footer from "../components/footer";
 import "./home.css";
 function Home() {
   return (<div>
