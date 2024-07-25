@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import imglogin from '../assets/login.png';
 import BackButton from '../components/back-button';
 import Validation from '../components/regisValidation';
-
+import axios from 'axios';
 const Register = () => {
   const [values, setValues] = useState({
     nama: '',
@@ -11,6 +11,14 @@ const Register = () => {
     no_tlp: '',
     password: ''
   });
+
+  const [username, setUsername] = useState('')
+
+  const [email, setEmail] = useState('')
+
+  const [telp, setTelp] = useState('')
+
+  const [password, setPassword] = useState('')
 
   const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
@@ -32,7 +40,7 @@ const Register = () => {
     setErrors({ ...errors, [name]: '' }); // Clear error on input change
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Validate inputs using the Validation function
@@ -42,17 +50,36 @@ const Register = () => {
       return;
     }
 
-    // Simulate successful registration
-    setModal({
-      show: true,
-      success: true,
-      message: 'Registrasi berhasil! Akun Anda telah dibuat.'
-    });
+    try {
+      // Simulate successful registration
+      const response = await axios.post('http://localhost:8080/auth/signup', {
+        username: values.nama,
+        email: values.email,
+        phone: values.no_tlp,
+        password: values.password,
+      });
+
+      console.log(values.nama,values.email,values.no_tlp,values.password)
+
+      if (response.status === 201) {
+        setModal({
+          show: true,
+          success: true,
+          message: 'Registrasi berhasil! Akun Anda telah dibuat.'
+        });
+      }
+    } catch (error) {
+      setModal({
+        show: true,
+        success: false,
+        message: 'Terjadi kesalahan saat mendaftar. Silakan coba lagi.'
+      });
+    }
   };
 
   const handleCloseModal = () => {
     if (modal.success) {
-      navigate('/login');
+      navigate('/otp/'+values.email);
     } else {
       setModal({ show: false, success: false, message: '' });
       setValues({ nama: '', email: '', no_tlp: '', password: '' });
@@ -98,9 +125,8 @@ const Register = () => {
                 type="text"
                 id="nama"
                 name="nama"
-                className={`px-4 py-3 lg:py-4 placeholder-gray-400 bg-white rounded-xl border border-gray-300 text-sm lg:text-base shadow focus:outline-none focus:ring focus:ring-gray-200 focus:shadow-outline w-full sm:text-sm ${
-                  errors.nama ? 'border-red-500' : ''
-                }`}
+                className={`px-4 py-3 lg:py-4 placeholder-gray-400 bg-white rounded-xl border border-gray-300 text-sm lg:text-base shadow focus:outline-none focus:ring focus:ring-gray-200 focus:shadow-outline w-full sm:text-sm ${errors.nama ? 'border-red-500' : ''
+                  }`}
                 placeholder="Nama Pengguna"
                 autoComplete="off"
                 autoFocus
@@ -118,9 +144,8 @@ const Register = () => {
                 type="email"
                 id="email"
                 name="email"
-                className={`px-4 py-3 lg:py-4 placeholder-gray-400 bg-white rounded-xl border border-gray-300 text-sm lg:text-base shadow focus:outline-none focus:ring focus:ring-gray-200 focus:shadow-outline w-full sm:text-sm ${
-                  errors.email ? 'border-red-500' : ''
-                }`}
+                className={`px-4 py-3 lg:py-4 placeholder-gray-400 bg-white rounded-xl border border-gray-300 text-sm lg:text-base shadow focus:outline-none focus:ring focus:ring-gray-200 focus:shadow-outline w-full sm:text-sm ${errors.email ? 'border-red-500' : ''
+                  }`}
                 placeholder="Masukkan email anda"
                 autoComplete="off"
                 value={values.email}
@@ -137,9 +162,8 @@ const Register = () => {
                 type="tel"
                 id="no_tlp"
                 name="no_tlp"
-                className={`px-4 py-3 lg:py-4 placeholder-gray-400 bg-white rounded-xl border border-gray-300 text-sm lg:text-base shadow focus:outline-none focus:ring focus:ring-gray-200 focus:shadow-outline w-full sm:text-sm ${
-                  errors.no_tlp ? 'border-red-500' : ''
-                }`}
+                className={`px-4 py-3 lg:py-4 placeholder-gray-400 bg-white rounded-xl border border-gray-300 text-sm lg:text-base shadow focus:outline-none focus:ring focus:ring-gray-200 focus:shadow-outline w-full sm:text-sm ${errors.no_tlp ? 'border-red-500' : ''
+                  }`}
                 placeholder="Masukkan nomor telepon anda"
                 autoComplete="off"
                 value={values.no_tlp}
@@ -154,9 +178,8 @@ const Register = () => {
               <label htmlFor="password" className="text-lg lg:text-xl font-bold">Kata Sandi</label>
               <div className="relative">
                 <input
-                  className={`px-4 py-3 lg:py-4 placeholder-gray-400 bg-white rounded-xl border border-gray-300 text-sm lg:text-base shadow focus:outline-none focus:ring focus:ring-gray-200 focus:shadow-outline w-full sm:text-sm ${
-                    errors.password ? 'border-red-500' : ''
-                  }`}
+                  className={`px-4 py-3 lg:py-4 placeholder-gray-400 bg-white rounded-xl border border-gray-300 text-sm lg:text-base shadow focus:outline-none focus:ring focus:ring-gray-200 focus:shadow-outline w-full sm:text-sm ${errors.password ? 'border-red-500' : ''
+                    }`}
                   type={showPassword ? 'text' : 'password'}
                   id="password"
                   name="password"

@@ -1,10 +1,19 @@
 import React, { useState, useRef } from 'react';
+import { useParams, Link } from 'react-router-dom';
 import imglogin from "../assets/login.png";
 import BackButton from '../components/back-button';
+import axios from 'axios';
 
 const Verify = () => {
+  const { email } = useParams();
   const [otp, setOtp] = useState(new Array(6).fill(''));
   const inputRefs = useRef([]);
+  const [modal, setModal] = useState({
+    show: false,
+    success: false,
+    message: ''
+  });
+
 
   const handleOtpChange = (element, index) => {
     if (isNaN(element.value)) return;
@@ -18,16 +27,55 @@ const Verify = () => {
     if (element.value && index < 5) {
       inputRefs.current[index + 1].focus();
     }
+    console.log(otp);
   };
-
+  const otpString = otp.join('');
+  console.log(otpString);
+  console.log(email);
   const handleKeyDown = (event, index) => {
     if (event.key === 'Backspace' && index > 0 && !otp[index]) {
       inputRefs.current[index - 1].focus();
     }
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(otpString)
+    const email = "llo";
+    try {
+      // Simulate successful registration
+      const response = await axios.post('http://localhost:8080/auth/verify', {
+        email: email,
+        authCode: otpString,
+      });
+      if (response.status === 200) {
+        setModal({
+          show: true,
+          success: true,
+          message: 'Registrasi berhasil! Akun Anda telah dibuat.'
+        });
+      }
+    } catch (error) {
+      setModal({
+        show: true,
+        success: false,
+        message: 'Terjadi kesalahan saat mendaftar. Silakan coba lagi.'
+      });
+    }
+  }
+
+  const handleCloseModal = () => {
+    if (modal.success) {
+      navigate('/login');
+    } else {
+      setModal({ show: false, success: false, message: '' });
+      otpString = null;
+      otp = null;
+    }
+  };
+
   const handleResend = () => {
-    // handle the resend logic here
+    console.log(otpString)
   };
 
   return (
@@ -61,7 +109,7 @@ const Verify = () => {
           </div>
 
           {/* OTP Form */}
-          <form className="flex flex-col gap-4 mt-2 md:mt-8">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-2 md:mt-8">
             <div className="flex justify-center items-center gap-3">
               {otp.map((digit, index) => (
                 <input
@@ -93,6 +141,20 @@ const Verify = () => {
           </form>
         </div>
       </div>
+      {modal.show && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <div className="bg-white p-8 rounded-lg shadow-lg max-w-md">
+            <h2 className="text-lg font-semibold mb-4">{modal.success ? 'Success' : 'Error'}</h2>
+            <p>{modal.message}</p>
+            <button
+              onClick={handleCloseModal}
+              className="bg-pink-500 text-white py-2 px-4 rounded hover:bg-pink-600"
+            >
+              Tutup
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

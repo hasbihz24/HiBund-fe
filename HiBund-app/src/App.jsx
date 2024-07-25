@@ -42,7 +42,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/regis" element={<Register />} />
         <Route path="/forget" element={<Forget />} />
-        <Route path="/otp" element={<Verify />} />
+        <Route path="/otp/:email" element={<Verify />} />
         <Route path="/ubah" element={<ChangePassword />} />
         <Route path="/otpLanjut" element={<VerifyLanjut />} />
         <Route path="/profil" element={<Profil />} />

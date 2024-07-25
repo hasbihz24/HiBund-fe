@@ -2,6 +2,13 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from '../../public/logo.png';
 function NavBar() {
+  window.sessionStorage.getItem("login");
+  const [login, setIsLogin] = React.useState(false);
+  React.useEffect(() => {
+    if (window.sessionStorage.getItem("login")) {
+      setIsLogin(true);
+    }
+  }, []);
   return (
     <nav className="bg-white shadow-md w-full py-4 ">
       <div className="container mx-auto flex items-center justify-between w-[1053px]">
@@ -92,11 +99,20 @@ function NavBar() {
           </ul>
         </div>
         <form className="hidden lg:block">
-          <Link to={"/login"}>
-            <button className="px-4 py-2 btn-pink" type="submit">
-              Masuk
-            </button>
-          </Link>
+          {!login ? (
+            <Link to={"/login"}>
+              <button className="px-4 py-2 btn-pink" type="submit">
+                Masuk
+              </button>
+            </Link>
+          ) : (
+            <div className="mb-8">
+              <Link to={"/profil"}>
+              <img className="w-full rounded-lg" src="" alt="profile" />
+              </Link>
+            </div>
+          )}
+
         </form>
       </div>
     </nav>

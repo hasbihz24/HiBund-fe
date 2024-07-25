@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import imglogin from "../assets/login.png";
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Login = () => {
   const [values, setValues] = useState({
@@ -31,9 +32,29 @@ const Login = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
 
+    try {
+      // Simulate successful registration
+      const response = await axios.get('http://localhost:8080/auth/login')
+
+      console.log(values.nama, values.email, values.no_tlp, values.password)
+
+      if (response.status === 201) {
+        setModal({
+          show: true,
+          success: true,
+          message: 'Registrasi berhasil! Akun Anda telah dibuat.'
+        });
+      }
+    } catch (error) {
+      setModal({
+        show: true,
+        success: false,
+        message: 'Terjadi kesalahan saat mendaftar. Silakan coba lagi.'
+      });
+    }
     let validationErrors = {};
     if (!values.email) {
       validationErrors.email = 'Email is required';
@@ -51,12 +72,14 @@ const Login = () => {
           success: true,
           message: 'Login berhasil! Selamat datang.'
         });
+        window.sessionStorage.setItem("login", "true");
       } else {
         setModal({
           show: true,
           success: false,
           message: 'Login gagal. Periksa email dan kata sandi Anda.'
         });
+        window.sessionStorage.setItem("login", "false");
       }
     }
   };
@@ -82,7 +105,7 @@ const Login = () => {
   return (
     <section className="min-h-screen flex items-center justify-center">
       <div className="flex flex-col md:flex-row rounded-2xl p-5 items-center gap-y-8 md:gap-x-8 bg-white shadow-lg">
-        
+
         {/* Image Section */}
         <div className="md:w-1/2 flex justify-center">
           <img className="rounded-2xl max-w-full h-auto md:max-w-1/2" src={imglogin} alt="Login visual" />
@@ -186,27 +209,16 @@ const Login = () => {
           </div>
 
           <div className="mt-8 flex gap-4 justify-center">
-            {/* Facebook Icon */}
-            <div className="p-2 rounded-xl bg-white hover:bg-gray-200 cursor-pointer transition-all duration-300">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                <path fill="#1877F2" d="M22.675 0h-21.35C.596 0 0 .592 0 1.321v21.358c0 .729.596 1.321 1.325 1.321H12.81V14.706H9.692v-3.62h3.118V8.035c0-3.093 1.892-4.782 4.655-4.782 1.325 0 2.463.099 2.795.143v3.24l-1.917.001c-1.503 0-1.794.715-1.794 1.764v2.313h3.588l-.467 3.62h-3.121V24h6.117c.729 0 1.325-.592 1.325-1.321V1.321C24 .592 23.404 0 22.675 0z" />
-              </svg>
-            </div>
             {/* Google Icon */}
             <div className="p-2 rounded-xl bg-white hover:bg-gray-200 cursor-pointer transition-all duration-300">
-                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 48 48">
-                  <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.168,29.303,4,24,4c-11.046,0-20,8.954-20,20s8.954,20,20,20c10.131,0,19.122-7.411,19.926-17h0.074V20.083z"></path>
-                  <path fill="#FF3D00" d="M6.305,14.691l6.571,4.82C14.3,16.683,18.835,14,24,14c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.168,29.303,4,24,4C15.745,4,8.429,9.139,6.305,14.691z"></path>
-                  <path fill="#4CAF50" d="M24,44c5.13,0,9.776-1.959,13.293-5.121l-6.01-4.96C29.962,35.801,27.086,37,24,37c-5.204,0-9.626-3.336-11.288-7.987l-6.432,5.013C8.242,39.17,15.533,44,24,44z"></path>
-                  <path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-1.074,3.037-3.207,5.478-5.913,6.933c0.001-0.001,0.001-0.002,0.002-0.002l6.01,4.96c-0.427,0.367,6.996-5.101,6.996-15.891c0-1.342-0.138-2.648-0.388-3.907L43.611,20.083z"></path>
-                </svg>
-            </div>
-            {/* LinkedIn Icon */}
-            <div className="p-2 rounded-xl bg-white hover:bg-gray-200 cursor-pointer transition-all duration-300">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                <path fill="#0077B5" d="M22.23 0H1.77C.79 0 0 .77 0 1.75v20.49C0 23.23.77 24 1.77 24H22.23c.98 0 1.77-.77 1.77-1.77V1.75C24 .77 23.23 0 22.23 0zM7.12 20.45H3.56V8.9h3.56v11.55zM5.34 7.41c-1.14 0-2.06-.93-2.06-2.06 0-1.13.92-2.06 2.06-2.06s2.06.93 2.06 2.06c0 1.13-.92 2.06-2.06 2.06zM20.45 20.45h-3.56V14.8c0-1.35-.03-3.09-1.88-3.09-1.88 0-2.17 1.47-2.17 2.99v5.75h-3.56V8.9h3.42v1.58h.05c.48-.91 1.66-1.87 3.42-1.87 3.65 0 4.33 2.4 4.33 5.53v6.31z" />
+              <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 48 48">
+                <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.168,29.303,4,24,4c-11.046,0-20,8.954-20,20s8.954,20,20,20c10.131,0,19.122-7.411,19.926-17h0.074V20.083z"></path>
+                <path fill="#FF3D00" d="M6.305,14.691l6.571,4.82C14.3,16.683,18.835,14,24,14c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.168,29.303,4,24,4C15.745,4,8.429,9.139,6.305,14.691z"></path>
+                <path fill="#4CAF50" d="M24,44c5.13,0,9.776-1.959,13.293-5.121l-6.01-4.96C29.962,35.801,27.086,37,24,37c-5.204,0-9.626-3.336-11.288-7.987l-6.432,5.013C8.242,39.17,15.533,44,24,44z"></path>
+                <path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-1.074,3.037-3.207,5.478-5.913,6.933c0.001-0.001,0.001-0.002,0.002-0.002l6.01,4.96c-0.427,0.367,6.996-5.101,6.996-15.891c0-1.342-0.138-2.648-0.388-3.907L43.611,20.083z"></path>
               </svg>
             </div>
+
           </div>
 
         </div>

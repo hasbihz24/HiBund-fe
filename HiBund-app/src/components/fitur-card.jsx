@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 
 // Importing images
-import imgchild13 from "../../public/jumbo-child.png";
 
 const FiturCard = ({ cards }) => {
     return (
@@ -16,7 +15,7 @@ const FiturCard = ({ cards }) => {
                                         transition-all duration-300 hover:shadow-2xl hover:border-pink-custom">
                             <img
                                 className="w-full h-52 object-cover md:h-40 lg:h-52" /* Adjust height for smaller screens */
-                                src={card.img || imgchild13}
+                                src={card.img}
                                 alt="Article Image"
                             />
                             <div className="p-4 flex flex-col justify-between flex-grow">
