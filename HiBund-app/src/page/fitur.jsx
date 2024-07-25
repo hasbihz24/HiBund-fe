@@ -81,7 +81,7 @@ function Fitur() {
         nama: article.authorName,
         judul: article.title,
         text: truncateText(article.content, 100),
-        img: article.imageUrl|| imgchild13 ,
+        img: article.imageUrl,
         next: "Baca Selengkapnya →"
     }));
     const title = cards.map(card => ({
