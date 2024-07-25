@@ -69,8 +69,6 @@ const Verify = () => {
       navigate('/login');
     } else {
       setModal({ show: false, success: false, message: '' });
-      otpString = null;
-      otp = null;
     }
   };
 
